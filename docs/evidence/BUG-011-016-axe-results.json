@@ -1,0 +1,391 @@
+{
+  "browser": "chromium desktop 1920×1080",
+  "scannedAfterLoading": true,
+  "rules": {
+    "link-name": {
+      "impact": "serious",
+      "help": "Links must have discernible text",
+      "wcag": [
+        "wcag2a",
+        "wcag244",
+        "wcag412"
+      ],
+      "pages": {
+        "/": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/owners": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/owners/add": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/vets": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/vets/add": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/pettypes": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/specialties": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/owners/{id}": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/owners/{id}/pets/add": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ],
+        "/pets/{id}/visits/add": [
+          {
+            "target": ".navbar-brand",
+            "html": "<a routerlink=\"/welcome\" class=\"navbar-brand\" href=\"/welcome\"><span ></span></a>",
+            "why": "Element does not have text that is visible to screen readers"
+          }
+        ]
+      }
+    },
+    "color-contrast": {
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "wcag": [
+        "wcag2aa",
+        "wcag143"
+      ],
+      "pages": {
+        "/owners": [
+          {
+            "target": "a[href=\"/owners/3643\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3643\">George Franklin</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3644\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3644\">Betty Davis</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3645\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3645\">Eduardo Rodriquez</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3646\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3646\">Harold Davis</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3647\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3647\">Peter McTavish</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3648\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3648\">Jean Coleman</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3649\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3649\">Jeff Black</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3650\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3650\">Maria Escobito</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3651\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3651\">David Schroeder</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/3652\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/3652\">Carlos Estaban</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4210\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4210\">Qafuyznoqwprfzv Qafuyznoqhgiokc</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4211\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4211\">Qafuyznoquvachm Qafuyznoqkgvtbf</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4212\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4212\">Qafuyznoqrhjhxb Qafuyznoqeocqli</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4213\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4213\">Qafuyznoqermbnv Qafuyznoqvwnnjy</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4214\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4214\">Qafuyznoqwiltze Qafuyznoqdrnoiu</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4215\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4215\">Qafuyznoqtoprtn Qafuyznoqbxaaac</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4216\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4216\">Qafuyznoqhzqnsm Qafuyznoqnuqtqa</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4217\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4217\">Qafuyznoqtmcfxz Qafuyznoqtrrrro</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4218\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4218\">Qafuyznoqtssbrm Qafuyznoqcmqarb</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4219\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4219\">Qafuyznoqcbhlhm Qafuyznoqwmubzv</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4220\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4220\">Qafuyznoqrnvjfd Qafuyznoqvetpyo</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4222\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4222\">Qafuyznwledbeqc Qafuyznwlvowaub</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4223\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4223\">Qafuyznwldmkpnk Qafuyznwlbxavuk</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4224\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4224\">Qafuyznwlqvhcqv Qafuyznwlzapjjj</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4225\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4225\">Qafuyznwlsyrjmx Qafuyznwlvabmta</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4226\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4226\">Qafuyznwlplygew Qafuyznwluwpefe</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4227\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4227\">Qafuyznwlawwtyr Qafuyznwlikthok</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4228\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4228\">Qafuyznwlmegqpi Qafuyznwlzevxtn</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4229\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4229\">Qafuyznwltrwzsi Qafuyznwlesfwwg</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4230\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4230\">Qafuyznwleddebc Qafuyznwletwquh</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4231\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4231\">Qafuyznwlaimuca Qafuyznwlzhnxzb</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4232\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4232\">Qafuyznwleyarzw Qafuyznwlfmzzet</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4233\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4233\">Qafuyzocyefspkd Qafuyzocysqqqpl</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4234\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4234\">Qafuyzocyzlaufr Qafuyzocyuxnpzb</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4235\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4235\">Qafuyzocymnapbo Qafuyzocyapaoco</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4236\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4236\">Qafuyzocydcoskb Qafuyzocywsxywh</a>",
+            "why": "Element has insufficient color contrast of 2.8 (foreground color: #5fa134, background color: #f1f1f1, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          },
+          {
+            "target": "a[href=\"/owners/4237\"]",
+            "html": "<a routerlinkactive=\"active\" href=\"/owners/4237\">Qafuyzocywqhgic Qafuyzocyytouch</a>",
+            "why": "Element has insufficient color contrast of 3 (foreground color: #5fa134, background color: #f9f9f9, font size: 10.5pt (14px), font weight: normal). Expected contrast ratio of 4.5:1"
+          }
+        ]
+      }
+    },
+    "label": {
+      "impact": "critical",
+      "help": "Form elements must have labels",
+      "wcag": [
+        "wcag2a",
+        "wcag412"
+      ],
+      "pages": {
+        "/owners": [
+          {
+            "target": "#lastName",
+            "html": "<input size=\"30\" maxlength=\"80\" id=\"lastName\" name=\"lastName\" value=\"\" class=\"form-control ng-untouched ng-pristine ng-valid\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          }
+        ],
+        "/pettypes": [
+          {
+            "target": "#\\30 ",
+            "html": "<input type=\"text\" name=\"pettype_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"0\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#\\31 ",
+            "html": "<input type=\"text\" name=\"pettype_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"1\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#\\32 ",
+            "html": "<input type=\"text\" name=\"pettype_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"2\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#\\33 ",
+            "html": "<input type=\"text\" name=\"pettype_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"3\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#\\34 ",
+            "html": "<input type=\"text\" name=\"pettype_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"4\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#\\35 ",
+            "html": "<input type=\"text\" name=\"pettype_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"5\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          }
+        ],
+        "/specialties": [
+          {
+            "target": "#\\30 ",
+            "html": "<input type=\"text\" name=\"spec_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"0\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#\\31 ",
+            "html": "<input type=\"text\" name=\"spec_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"1\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#\\32 ",
+            "html": "<input type=\"text\" name=\"spec_name\" class=\"form-control ng-untouched ng-pristine ng-valid\" id=\"2\" readonly=\"\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          }
+        ],
+        "/owners/{id}/pets/add": [
+          {
+            "target": "#owner_name",
+            "html": "<input id=\"owner_name\" name=\"owner_name\" type=\"text\" readonly=\"\" class=\"form-control\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": ".mat-datepicker-input",
+            "html": "<input matinput=\"\" required=\"\" name=\"birthDate\" class=\"mat-datepicker-input ng-untouched ng-pristine ng-invalid\" aria-haspopup=\"dialog\" data-mat-calendar=\"mat-d",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          }
+        ],
+        "/pets/{id}/visits/add": [
+          {
+            "target": ".mat-datepicker-input",
+            "html": "<input matinput=\"\" required=\"\" name=\"date\" class=\"mat-datepicker-input ng-untouched ng-pristine ng-invalid\" aria-haspopup=\"dialog\" data-mat-calendar=\"mat-datepi",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          },
+          {
+            "target": "#description",
+            "html": "<input id=\"description\" name=\"description\" required=\"\" type=\"text\" class=\"form-control ng-untouched ng-pristine ng-invalid\">",
+            "why": "Element does not have an implicit (wrapped) <label>"
+          }
+        ]
+      }
+    },
+    "definition-list": {
+      "impact": "serious",
+      "help": "<dl> elements must only directly contain properly-ordered <dt> and <dd> groups, <script>, <template> or <div> elements",
+      "wcag": [
+        "wcag2a",
+        "wcag131"
+      ],
+      "pages": {
+        "/owners/{id}": [
+          {
+            "target": "dl",
+            "html": "<dl class=\"dl-horizontal\">",
+            "why": "dl element has direct children that are not allowed: button"
+          }
+        ]
+      }
+    }
+  }
+}

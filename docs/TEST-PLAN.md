@@ -5,7 +5,7 @@
 | **Application under test** | PetClinic – https://petclinic.bondaracademy.com (Angular SPA) |
 | **API** | https://petclinic-api.bondaracademy.com/petclinic/api/ (REST, Auth0 bearer token) |
 | **Framework** | Playwright Test 1.64 + TypeScript, `@axe-core/playwright` for accessibility |
-| **Status** | Phase 4 – automation implemented; execution report (Phase 6) next |
+| **Status** | Phase 6 – bugs filed ([BUG-REPORTS.md](BUG-REPORTS.md)), execution report in [TEST-EXECUTION-REPORT.md](TEST-EXECUTION-REPORT.md) |
 | **Date** | 2026-11-02 |
 
 ## 1. Objective

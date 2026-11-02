@@ -1,0 +1,12 @@
+{
+  "browser": "chromium desktop 1920×1080",
+  "titles": {
+    "/": "Petclinic Test",
+    "/owners": "Petclinic Test",
+    "/owners/add": "Petclinic Test",
+    "/vets": "Petclinic Test",
+    "/vets/add": "Petclinic Test",
+    "/pettypes": "Petclinic Test",
+    "/specialties": "Petclinic Test"
+  }
+}

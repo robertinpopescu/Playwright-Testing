@@ -4,7 +4,7 @@
 |---|---|
 | **Application** | https://petclinic.bondaracademy.com · API https://petclinic-api.bondaracademy.com/petclinic/api/ |
 | **Related** | [TEST-PLAN.md](TEST-PLAN.md) · [TEST-COVERAGE.md](TEST-COVERAGE.md) · [BUG-REPORTS.md](BUG-REPORTS.md) |
-| **Status** | Phase 3 – draft for review. No test code written yet for the new cases. |
+| **Status** | Phase 6 – automated; known bugs filed as BUG-001 – BUG-017 |
 | **Date** | 2026-11-02 |
 
 ## How to read this document
@@ -21,7 +21,7 @@ Critical · High · Medium · Low.
 |---|---|
 | Automated (exists) | Already automated in the repository |
 | To automate | Will be automated in Phase 4 |
-| To automate – known bug | Will be automated with the `knownBug()` helper and a link to the bug. Only the assertion that describes the bug is inverted: the test passes while the bug exists, fails with "BUG-xxx seems fixed" once it is fixed, and fails normally if any setup step breaks. |
+| To automate – known bug | Automated and marked with Playwright's `test.fail()` plus an `issue` annotation that names the bug (via the `knownBug()` helper in [fixtures/index.ts](../fixtures/index.ts)). The test asserts the **correct** behaviour:<br>• bug still present → reported as **expected to fail**, and the run stays green<br>• bug fixed → reported as a failure ("Expected to fail, but passed"); update BUG-REPORTS and remove `knownBug()`<br>• any other failure (setup before the bug check, cleanup after it) → reported as a **real** failure<br>`test.fail()` is set only when the bug assertion is reached, and a guard fixture checks that the bug assertion was the only error. `VERIFY_KNOWN_BUGS=1` runs these tests as normal tests, to see the real failure message. |
 | Manual | Needs human judgement; run by hand and recorded in the execution report |
 | Exploratory | Behaviour has no stated requirement. The actual result is recorded; it is not judged pass/fail and is not filed as a bug unless it causes a failure or data problem. "Exploratory (automated, records the result)" = a test tagged `@exploratory` writes the observed result into the report and asserts only what must always hold |
 
@@ -70,9 +70,9 @@ These apply to **every** test case and are not repeated below.
 | [Regression / consistency](#regression--consistency-reg) | REG-001 – REG-006 | 6 |
 | [API](#api-api) | API-001 – API-018 | 18 |
 | [Security](#security-sec) | SEC-001 – SEC-005 | 5 |
-| [Accessibility](#accessibility-a11y) | A11Y-001 – A11Y-006 | 6 |
+| [Accessibility](#accessibility-a11y) | A11Y-001 – A11Y-007 | 7 |
 | [Responsive / cross-browser](#responsive--cross-browser-rsp) | RSP-001 – RSP-004 | 4 |
-| **Total** | | **122** |
+| **Total** | | **123** |
 
 ---
 
@@ -1447,18 +1447,28 @@ All security tests are non-invasive: they use only test-created records and neve
 ## Accessibility (A11Y)
 
 ### A11Y-001 – Automated axe scan of every main page
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency (WCAG 2.x A/AA) · **Tags:** @a11y
+**Priority:** Medium · **Status:** To automate – known bug **BUG-011**, **BUG-012**, **BUG-014**, **BUG-016** · **Basis:** Consistency (WCAG 2.x A/AA) · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** Pages from NAV-005, plus the owner details, Add Pet and New Visit pages of a test-created owner.
 * **Steps:**
-  1. Run `@axe-core/playwright` with tags `wcag2a`, `wcag2aa`, `wcag21a` and `wcag21aa` on each page.
+  1. Wait until loading has finished (network idle, loading spinner gone).
+  2. Run `@axe-core/playwright` with tags `wcag2a`, `wcag2aa`, `wcag21a` and `wcag21aa` on each page.
 * **Expected result:**
   * No violations.
   * Each violation is triaged; confirmed ones are reported in BUG-REPORTS with the rule ID.
+* **Automation (Phase 6):**
+  * Each page lists the axe rules with a filed bug:
+    * `link-name` → BUG-011 (all pages)
+    * `label` → BUG-012 (Owners, Pet Types, Specialties, Add Pet, New Visit)
+    * `definition-list` → BUG-014 (owner details)
+    * `color-contrast` → BUG-016 (Owners)
+  * A violation of **any other rule fails normally**, so a new issue is not hidden by `test.fail()`.
+  * The known rules are then checked as known bugs.
+  * Scanning before loading finished made the result change between runs: the spinner was flagged on some runs, and the list rows were not scanned yet. That spinner violation is filed as BUG-015 and tested by A11Y-007.
 
 ### A11Y-002 – Navbar works with the keyboard only
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @a11y
+**Priority:** Medium · **Status:** To automate – known bug **BUG-013** · **Basis:** Consistency · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** –
@@ -1468,6 +1478,7 @@ All security tests are non-invasive: they use only test-created records and neve
   3. Tab to **Add New** and press Enter.
   4. Repeat for **Veterinarians**.
 * **Expected result:** Each target page opens without using the mouse.
+* **Automation (Phase 6):** Menus that cannot be reached with Tab are collected. The known-bug assertion is that this list is empty. A menu that *can* be reached is then opened and checked as a normal test step.
 
 ### A11Y-003 – New Owner form can be completed with the keyboard
 **Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @a11y
@@ -1483,7 +1494,7 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Cleanup:** API delete.
 
 ### A11Y-004 – Form fields have accessible names
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (several fields have none) · **Tags:** @a11y
+**Priority:** Medium · **Status:** To automate – known bug **BUG-012** · **Basis:** Observed (several fields have none) · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** Fields seen without a name in Phase 1:
@@ -1495,7 +1506,7 @@ All security tests are non-invasive: they use only test-created records and neve
   1. Read each field's accessible name.
 * **Expected result:**
   * Every field has an accessible name.
-  * Confirmed gaps are filed as a new bug in Phase 6 (not filed yet).
+  * Confirmed gaps are filed as a new bug in Phase 6: all 7 fields are filed as **BUG-012**.
 
 ### A11Y-005 – Visible focus indicator
 **Priority:** Low · **Status:** Manual · **Basis:** Consistency (WCAG 2.4.7) · **Tags:** @a11y
@@ -1519,6 +1530,19 @@ All security tests are non-invasive: they use only test-created records and neve
   * The date is selected.
   * Focus returns to the form.
 
+### A11Y-007 – Loading indicator has an accessible name
+**Priority:** Low · **Status:** To automate – known bug **BUG-015** · **Basis:** Consistency (WCAG 4.1.2) · **Tags:** @a11y
+*Added in Phase 6.*
+
+* **Preconditions:** –
+* **Test data:** –
+* **Steps:**
+  1. Hold back the browser's own `GET /pettypes` request (`page.route`), so the loading spinner stays visible. Nothing is sent to the server until the request is released.
+  2. Open Pet Types.
+  3. Read the spinner's (`role="progressbar"`) accessible name.
+  4. Release the request.
+* **Expected result:** The spinner has an accessible name (e.g. "Loading").
+
 ---
 
 ## Responsive / cross-browser (RSP)
@@ -1537,7 +1561,7 @@ All security tests are non-invasive: they use only test-created records and neve
   * No navbar item is cut off or hidden without a way to reach it.
 
 ### RSP-002 – No horizontal page scroll on tablet and mobile
-**Priority:** Low · **Status:** To automate · **Basis:** Consistency (WCAG 1.4.10 Reflow) · **Tags:** @responsive
+**Priority:** Low · **Status:** To automate – known bug **BUG-017** (phones only) · **Basis:** Consistency (WCAG 1.4.10 Reflow) · **Tags:** @responsive
 
 * **Preconditions:** `tablet` and `mobile` projects; an owner with a pet (API).
 * **Test data:** Pages from NAV-005, plus the owner details, Add Pet and New Visit pages.
@@ -1547,7 +1571,10 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Expected result:**
   * No page is wider than the screen.
   * Wide tables may scroll inside their own container. Any page-level overflow is recorded and triaged.
-* **Observed in Phase 4:** on `mobile` (Pixel 7, 412 px) the New Visit page is 422 px wide (`.form-group` / `.col-sm-10` and the footer). Candidate Low layout defect, to be filed in Phase 6.
+* **Observed in Phase 4:** on `mobile` (Pixel 7, 412 px) the New Visit page is 422 px wide (`.form-group` / `.col-sm-10` and the footer).
+* **Phase 6:**
+  * Filed as **BUG-017**. It also reproduced on iPhone 14 (WebKit) and Galaxy S9+, and the owner details page overflows on 320 px screens.
+  * Only the New Visit overflow on screens narrower than Bootstrap's 768 px breakpoint counts as the known bug. Overflow on any other page, or on the tablet, fails normally.
 
 ### RSP-003 – Create an owner on mobile
 **Priority:** Medium · **Status:** To automate (no separate test: OWN-008 is `@smoke` and runs in the `mobile` project) · **Basis:** Consistency · **Tags:** @smoke

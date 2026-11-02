@@ -1,0 +1,25 @@
+{
+  "browser": "chromium desktop 1920×1080",
+  "steps": [
+    {
+      "record": "visit",
+      "dialogShown": false,
+      "apiStatusAfter": 404
+    },
+    {
+      "record": "pet",
+      "dialogShown": false,
+      "apiStatusAfter": 404
+    },
+    {
+      "record": "vet",
+      "dialogShown": false,
+      "apiStatusAfter": 404
+    },
+    {
+      "record": "specialty",
+      "dialogShown": false,
+      "apiStatusAfter": 404
+    }
+  ]
+}

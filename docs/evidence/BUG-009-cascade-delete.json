@@ -1,0 +1,13 @@
+{
+  "browser": "chromium desktop 1920×1080",
+  "dialog": "Delete the pet type?",
+  "deletePetType": 204,
+  "before": {
+    "pet": 200,
+    "visit": 200
+  },
+  "after": {
+    "pet": 404,
+    "visit": 404
+  }
+}

@@ -12,6 +12,9 @@ import { VisitFormPage } from "../pages/VisitFormPage"
 import { test as apiTest } from "./api"
 import { TestData } from "./test-data"
 
+// Annotation type added by knownBug() when the bug assertion fails
+const KNOWN_BUG = "known-bug"
+
 type Fixtures = {
   petclinic: PetclinicApi
   data: TestData
@@ -25,9 +28,19 @@ type Fixtures = {
   vetForm: VetFormPage
   petTypesPage: PetTypesPage
   specialtiesPage: SpecialtiesPage
+  knownBugGuard: void
 }
 
 export const test = apiTest.extend<Fixtures>({
+  // A known-bug test may only fail at its bug assertion. If it failed anywhere else as well
+  // (e.g. a cleanup error after the bug check), the failure is reported as a real one
+  // instead of "expected to fail".
+  knownBugGuard: [async ({}, use, testInfo) => {
+    await use()
+    const failedOnlyAtBug = testInfo.annotations.some(annotation => annotation.type === KNOWN_BUG) && testInfo.errors.length === 1
+    if (testInfo.expectedStatus === "failed" && testInfo.status === "failed" && !failedOnlyAtBug) testInfo.expectedStatus = "passed"
+  }, { auto: true }],
+
   petclinic: async ({ api }, use) => {
     await use(new PetclinicApi(api))
   },
@@ -53,24 +66,27 @@ export const test = apiTest.extend<Fixtures>({
 
 export { expect } from "@playwright/test"
 
-// Runs the assertion that describes a confirmed bug (the correct behaviour). Only this
-// callback is inverted: setup steps outside it fail the test normally, so a broken setup
-// can never look like "bug still present".
-// - bug still present (assertion fails) -> test passes, annotation "known-bug"
-// - assertion passes -> test fails: the bug seems fixed, update BUG-REPORTS.md
-// VERIFY_KNOWN_BUGS=1 runs the assertion without inversion, to see its real failure message.
-export async function knownBug(bugId: string, correctBehaviour: () => Promise<void>): Promise<void> {
-  test.info().annotations.push({ type: "issue", description: `${bugId} – docs/BUG-REPORTS.md#${bugId.toLowerCase()}` })
+// Runs the assertion that describes a confirmed bug (the correct behaviour) and marks the
+// test with test.fail() at that point, so Playwright reports it as "expected to fail".
+// - bug still present (assertion fails) -> expected failure, annotation "known-bug"
+// - assertion passes -> "Expected to fail, but passed": the bug seems fixed, update BUG-REPORTS.md
+// Setup steps before the call fail the test normally (test.fail() is not set yet), and the
+// knownBugGuard fixture turns any other error into a real failure.
+// VERIFY_KNOWN_BUGS=1 runs the assertion as a normal one, to see its real failure message.
+export async function knownBug(bugIds: string | string[], correctBehaviour: () => Promise<void>): Promise<void> {
+  const ids = typeof bugIds === "string" ? [bugIds] : bugIds
+  const info = test.info()
+  for (const id of ids) info.annotations.push({ type: "issue", description: `${id} – docs/BUG-REPORTS.md#${id.toLowerCase()}` })
   if (process.env.VERIFY_KNOWN_BUGS === "1") return correctBehaviour()
 
+  test.fail(true, `${ids.join(", ")} open: expected to fail until fixed`)
   try {
     await correctBehaviour()
   } catch (error) {
     const reason = error instanceof Error ? error.message.split("\n")[0] : String(error)
-    test.info().annotations.push({ type: "known-bug", description: `${bugId} still present: ${reason}` })
-    return
+    info.annotations.push({ type: KNOWN_BUG, description: `${ids.join(", ")} still present: ${reason}` })
+    throw error
   }
-  throw new Error(`${bugId} seems fixed: the correct behaviour was observed. Update docs/BUG-REPORTS.md and remove knownBug() from this test.`)
 }
 
 const REQUEST_WAIT_MS = 3000

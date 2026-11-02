@@ -3,7 +3,7 @@
 | | |
 |---|---|
 | **Related** | [TEST-PLAN.md](TEST-PLAN.md) · [TEST-CASES.md](TEST-CASES.md) · [BUG-REPORTS.md](BUG-REPORTS.md) |
-| **Status** | Phase 4 – coverage updated after the "To confirm" checks and automation. Execution results are added in Phase 6. |
+| **Status** | Phase 6 – bugs BUG-011 – BUG-017 filed and linked; execution results in [TEST-EXECUTION-REPORT.md](TEST-EXECUTION-REPORT.md). |
 | **Date** | 2026-11-02 |
 
 This document maps every feature to the test cases that cover it. Section 4 traces the
@@ -11,7 +11,7 @@ possible defects found in Phase 1 to their outcome and to the cases that cover t
 
 ## 1. Summary
 
-**122 test cases.** Counts were computed from [TEST-CASES.md](TEST-CASES.md).
+**123 test cases.** Counts were computed from [TEST-CASES.md](TEST-CASES.md).
 
 | Module | Cases | Critical | High | Medium | Low | Automated (exists) | To automate | To automate – known bug | Exploratory | Manual |
 |---|---|---|---|---|---|---|---|---|---|---|
@@ -25,9 +25,9 @@ possible defects found in Phase 1 to their outcome and to the cases that cover t
 | REG  | 6  | 1 | 3 | 2  | –  | – | 6  | –  | – | – |
 | API  | 18 | – | 5 | 11 | 2  | – | 18 | –  | – | – |
 | SEC  | 5  | – | 2 | 3  | –  | – | 3  | 1  | – | 1 |
-| A11Y | 6  | – | – | 4  | 2  | – | 4  | –  | – | 2 |
-| RSP  | 4  | – | 1 | 2  | 1  | – | 4  | –  | – | – |
-| **Total** | **122** | **4** | **39** | **64** | **15** | **2** | **98** | **13** | **6** | **3** |
+| A11Y | 7  | – | – | 4  | 3  | – | 1  | 4  | – | 2 |
+| RSP  | 4  | – | 1 | 2  | 1  | – | 3  | 1  | – | – |
+| **Total** | **123** | **4** | **39** | **64** | **16** | **2** | **94** | **18** | **6** | **3** |
 
 **Changes in Phase 4:**
 * PTY-010 became a known-bug case (BUG-009), priority Medium → High.
@@ -35,8 +35,13 @@ possible defects found in Phase 1 to their outcome and to the cases that cover t
 * SPC-008 became a normal automated case; its behaviour is now observed.
 * OWN-021 is counted under "To automate", but 4 of its 6 data rows are known-bug rows (BUG-010).
 
-**Automation: 119 of 122 cases (98 %).**
-* 113 cases are automated as pass/fail tests (existing, to automate, known bug).
+**Changes in Phase 6:**
+* A11Y-001, A11Y-002 and A11Y-004 became known-bug cases (BUG-011 – BUG-014, BUG-016).
+* RSP-002 became a known-bug case on phones (BUG-017).
+* **A11Y-007 is new**: the loading spinner's accessible name (BUG-015), priority Low.
+
+**Automation: 120 of 123 cases (98 %).**
+* 114 cases are automated as pass/fail tests (existing, to automate, known bug).
 * The 6 exploratory cases are automated as **recording** tests (tag `@exploratory`): they write
   the observed result into the report and assert only what must always hold.
 * The 3 manual cases are SEC-005, A11Y-005 and A11Y-006.
@@ -131,7 +136,7 @@ bug · **exp** = exploratory · **man** = manual.
 | API error handling | API-003, API-006, API-010, API-014, SEC-004 |
 | XSS / input handling | SEC-001, SEC-002, OWN-021 |
 | Secrets in repo/reports | SEC-005 (man) |
-| Accessibility | A11Y-001 – A11Y-006, NAV-008 |
+| Accessibility | A11Y-001 – A11Y-007, NAV-008 |
 | Responsive / cross-browser | RSP-001 – RSP-004 |
 
 ## 3. Test type × module matrix
@@ -200,8 +205,13 @@ is caught.
 | Owner names with accents, apostrophes or hyphens fail silently | **Confirmed** → [BUG-010](BUG-REPORTS.md#bug-010) | OWN-021 rows 1–4 (bug) |
 | Empty specialty name still sends a request (400) | Observation [OBS-002](BUG-REPORTS.md#obs-002) | SPC-003 |
 | Owner search 404 instead of `200 []` | Observation [OBS-001](BUG-REPORTS.md#obs-001) | API-003 (current behaviour) |
-| Accessibility: fields without accessible names, unnamed progress bar and logo link, invalid definition list, Owners/Veterinarians menus not reachable with Tab | **Confirmed by test failures**; to be filed in Phase 6 as planned | A11Y-001, A11Y-002, A11Y-004 |
-| New Visit page 10 px wider than a 412 px phone screen | **Confirmed by RSP-002**; to be filed in Phase 6 | RSP-002 (mobile) |
+| Logo link without a name | **Confirmed** → [BUG-011](BUG-REPORTS.md#bug-011) (Phase 6) | A11Y-001 (bug) |
+| Form fields without accessible names | **Confirmed** → [BUG-012](BUG-REPORTS.md#bug-012) (Phase 6) | A11Y-001, A11Y-004 (bug) |
+| Owners / Veterinarians menus not reachable with Tab | **Confirmed** → [BUG-013](BUG-REPORTS.md#bug-013) (Phase 6) | A11Y-002 (bug) |
+| Invalid definition list on owner details | **Confirmed** → [BUG-014](BUG-REPORTS.md#bug-014) (Phase 6) | A11Y-001 (bug) |
+| Loading spinner without a name | **Confirmed** → [BUG-015](BUG-REPORTS.md#bug-015) (Phase 6) | A11Y-007 (bug) |
+| Owner list links with 3:1 contrast | **Confirmed** → [BUG-016](BUG-REPORTS.md#bug-016) (found in Phase 6, once A11Y-001 scanned after loading) | A11Y-001 (bug) |
+| New Visit page wider than phone screens | **Confirmed** → [BUG-017](BUG-REPORTS.md#bug-017) (Phase 6; Pixel 7, iPhone 14, Galaxy S9+) | RSP-002 (mobile, bug) |
 
 ## 5. Confirmed bugs → test cases (reverse view)
 
@@ -211,17 +221,28 @@ is caught.
 | [BUG-002](BUG-REPORTS.md#bug-002) Non-existent owner shows a blank page | Medium / Low | OWN-020 |
 | [BUG-003](BUG-REPORTS.md#bug-003) Empty New Visit sends an invalid request and fails silently | Medium / Medium | VIS-005 |
 | [BUG-004](BUG-REPORTS.md#bug-004) Deletes without confirmation | Medium / Medium | PET-013, VIS-009, VET-010, SPC-007 |
-| [BUG-005](BUG-REPORTS.md#bug-005) Save Pet / Save Vet enabled on an empty form, no feedback | Low / Low | PET-005, VET-005 |
+| [BUG-005](BUG-REPORTS.md#bug-005) Save Pet / Save Vet enabled on an empty form and submit it | Low / Low | PET-005, VET-005 |
 | [BUG-006](BUG-REPORTS.md#bug-006) New Vet field "Type", single select | Low / Low | VET-006 |
 | [BUG-007](BUG-REPORTS.md#bug-007) Same page title everywhere | Low / Low | NAV-008 |
 | [BUG-008](BUG-REPORTS.md#bug-008) API errors expose internal class names | Medium / Low | SEC-004 |
 | [BUG-009](BUG-REPORTS.md#bug-009) Deleting a pet type deletes its pets and visits | High / High | PTY-010 |
 | [BUG-010](BUG-REPORTS.md#bug-010) Names with accents / apostrophes / hyphens fail silently | Medium / Medium | OWN-021 (rows 1–4) |
+| [BUG-011](BUG-REPORTS.md#bug-011) Logo link has no accessible name | Low / Medium | A11Y-001 (all 8 scan tests) |
+| [BUG-012](BUG-REPORTS.md#bug-012) Form fields without accessible names | Medium / Medium | A11Y-001 (Owners, Pet Types, Specialties, Add Pet, New Visit), A11Y-004 |
+| [BUG-013](BUG-REPORTS.md#bug-013) Owners / Veterinarians menus not reachable with the keyboard | High / High | A11Y-002 |
+| [BUG-014](BUG-REPORTS.md#bug-014) Invalid definition list on owner details | Low / Low | A11Y-001 (owner details) |
+| [BUG-015](BUG-REPORTS.md#bug-015) Loading spinner has no accessible name | Low / Low | A11Y-007 |
+| [BUG-016](BUG-REPORTS.md#bug-016) Owner list links have 3:1 contrast | Low / Low | A11Y-001 (Owners) |
+| [BUG-017](BUG-REPORTS.md#bug-017) New Visit page wider than phone screens | Medium / Medium | RSP-002 (mobile project) |
 
-These 13 cases (16 tests, because OWN-021 has 4 known-bug rows) are automated with the `knownBug()` helper, with a link to the bug. It inverts only the assertion that describes the bug (setup errors fail normally). The suite stays green
-while the bugs exist, and a case starts failing as soon as its bug is fixed. That failure is
-the signal to remove the annotation. Running with `VERIFY_KNOWN_BUGS=1` runs them as normal
-tests, to check that each fails at the assertion that describes its bug (checked in Phase 4).
+**How known-bug tests work.** These 18 cases are automated with the `knownBug()` helper ([fixtures/index.ts](../fixtures/index.ts)).
+* The test asserts the correct behaviour. When it reaches the bug assertion, it calls Playwright's `test.fail()` and adds an `issue` annotation with the bug ID.
+* **Bug still there:** the test is reported as an expected failure, and the suite stays green.
+* **Bug fixed:** the test is reported as "Expected to fail, but passed". That is the signal to update BUG-REPORTS and remove `knownBug()`.
+* **Any other failure:** reported as a real failure. A setup step fails before `test.fail()` is set, and the `knownBugGuard` fixture flags a cleanup error after it.
+* Running with `VERIFY_KNOWN_BUGS=1` runs them as normal tests, to check that each fails at its bug assertion.
+
+A11Y-001 and RSP-002 link each known violation to its bug. A violation or overflow that is not linked to a bug fails the test normally.
 
 ## 6. "To confirm" details – resolved in Phase 4
 

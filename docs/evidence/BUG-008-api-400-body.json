@@ -1,8 +1,16 @@
 {
-  "request": "POST /petclinic/api/owners/{ownerId}/pets/{petId}/visits  {\"date\":\"Invalid date\",\"description\":\"x\"}",
-  "status": 400,
-  "body": {
-    "className": "org.springframework.http.converter.HttpMessageNotReadableException",
-    "exMessage": "JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String \"Invalid date\": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text 'Invalid date' could not be parsed at index 0"
+  "invalidDate": {
+    "status": 400,
+    "body": {
+      "className": "org.springframework.http.converter.HttpMessageNotReadableException",
+      "exMessage": "JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String \"Invalid date\": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text 'Invalid date' could not be parsed at index 0"
+    }
+  },
+  "malformedJson": {
+    "status": 400,
+    "body": {
+      "className": "org.springframework.http.converter.HttpMessageNotReadableException",
+      "exMessage": "JSON parse error: Cannot construct instance of `org.springframework.samples.petclinic.rest.dto.OwnerFieldsDto` (although at least one Creator exists): no String-argument constructor/factory method to deserialize from String value ('{not json')"
+    }
   }
 }

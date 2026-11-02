@@ -1,0 +1,16 @@
+{
+  "browser": "chromium desktop 1920×1080",
+  "page": "/",
+  "tabPresses": [
+    "a \"navbar-brand\"",
+    "a \"Home\"",
+    "a \"Pet Types\"",
+    "a \"Specialties\"",
+    "(body)",
+    "a \"navbar-brand\"",
+    "a \"Home\"",
+    "a \"Pet Types\"",
+    "a \"Specialties\"",
+    "(body)"
+  ]
+}

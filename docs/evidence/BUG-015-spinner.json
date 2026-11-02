@@ -1,0 +1,5 @@
+{
+  "browser": "chromium desktop 1920×1080",
+  "ariaSnapshot": "- progressbar",
+  "html": "<mat-spinner role=\"progressbar\" tabindex=\"-1\" class=\"mat-mdc-progress-spinner mdc-circular-progress spinner mat-primary mdc-circular-progress--indeterminate\" aria-valuemin=\"0\" aria-valuemax=\"100\" mode"
+}
