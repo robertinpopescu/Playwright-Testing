@@ -1,0 +1,8 @@
+{
+  "request": "POST /petclinic/api/owners/{ownerId}/pets/{petId}/visits  {\"date\":\"Invalid date\",\"description\":\"x\"}",
+  "status": 400,
+  "body": {
+    "className": "org.springframework.http.converter.HttpMessageNotReadableException",
+    "exMessage": "JSON parse error: Cannot deserialize value of type `java.time.LocalDate` from String \"Invalid date\": Failed to deserialize java.time.LocalDate: (java.time.format.DateTimeParseException) Text 'Invalid date' could not be parsed at index 0"
+  }
+}
