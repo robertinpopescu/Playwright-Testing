@@ -5,7 +5,7 @@
 | **Application under test** | PetClinic – https://petclinic.bondaracademy.com (Angular SPA) |
 | **API** | https://petclinic-api.bondaracademy.com/petclinic/api/ (REST, Auth0 bearer token) |
 | **Framework** | Playwright Test 1.64 + TypeScript, `@axe-core/playwright` for accessibility |
-| **Status** | Phase 6 – bugs filed ([BUG-REPORTS.md](BUG-REPORTS.md)), execution report in [TEST-EXECUTION-REPORT.md](TEST-EXECUTION-REPORT.md) |
+| **Status** | Phase 6 – bugs filed ([BUG-REPORTS.md](BUG-REPORTS.md)), execution report in [TEST-EXECUTION-REPORT.md](TEST-EXECUTION-REPORT.md). Portfolio documents added 2026-11-03: [TEST-SCENARIOS.md](TEST-SCENARIOS.md), [TRACEABILITY-MATRIX.md](TRACEABILITY-MATRIX.md), [QA-SUMMARY.md](QA-SUMMARY.md), [jira/](jira/README.md) |
 | **Date** | 2026-11-02 |
 
 ## 1. Objective
@@ -134,15 +134,18 @@ in Phase 4.
 * **Artifacts:** screenshot, trace and video retained on failure; HTML report.
 
 ```
-.auth/          global setup (existing)
-fixtures/       api.ts (added), test fixtures, data factory + cleanup
+.auth/          global setup: sign-in, saved session (user.json is git-ignored)
+api/            typed API client and response types
+fixtures/       test fixtures: api client (token scoped to the API host), page objects,
+                data factory with automatic cleanup, knownBug() helper
 pages/          page objects
-test-data/      builders, boundary/negative tables
-utils/          helpers (unique names, API response types)
+support/        global sweep (before the run) and leftover check (after the run)
+test-data/      unique names, builders, sweep rules
 tests/          navigation/ owners/ pets/ visits/ vets/ pet-types/ specialties/
-                api/ regression/ a11y/ security/ responsive/
+                api/ regression/ accessibility/ security/ responsive/ exploratory/
                 homework.spec.ts, input-fields.spec.ts (course work, kept)
-docs/           this plan, test cases, coverage, bugs, execution report, API notes
+docs/           this plan, scenarios, test cases, coverage, bugs, execution report,
+                traceability matrix, QA summary, jira/ (Jira import)
 ```
 
 ## 8. Entry and exit criteria
@@ -181,7 +184,8 @@ docs/           this plan, test cases, coverage, bugs, execution report, API not
 |---|---|
 | TEST-PLAN.md (this document) | 2 ✅ |
 | BUG-REPORTS.md | 2 ✅ (initial 7 defects), updated in Phase 6 |
-| TEST-CASES.md, TEST-COVERAGE.md | 3 |
-| Automated suite | 4–5 |
-| TEST-EXECUTION-REPORT.md, API-TESTING.md | 6–7 |
-| README.md update | 7 |
+| TEST-CASES.md, TEST-COVERAGE.md | 3 ✅ |
+| Automated suite | 4–5 ✅ |
+| TEST-EXECUTION-REPORT.md | 6 ✅ |
+| API-TESTING.md | Not created; the API cases are documented in [TEST-CASES.md § API](TEST-CASES.md#api-api) and the endpoints in [§6](#6-api-endpoints-under-test) |
+| README.md update, TEST-SCENARIOS.md, TRACEABILITY-MATRIX.md, QA-SUMMARY.md, jira/ | 7 ✅ (2026-11-03) |

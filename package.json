@@ -1,9 +1,18 @@
 {
   "name": "playwright-homework",
   "version": "1.0.0",
-  "description": "",
+  "description": "QA portfolio: Playwright + TypeScript automation and manual QA documentation for the PetClinic demo application",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:smoke": "playwright test --grep @smoke",
+    "test:regression": "playwright test --grep @regression",
+    "test:api": "playwright test --grep @api",
+    "test:a11y": "playwright test --grep @a11y",
+    "test:security": "playwright test --grep @security",
+    "test:chromium": "playwright test --project=chromium",
+    "report": "playwright show-report"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

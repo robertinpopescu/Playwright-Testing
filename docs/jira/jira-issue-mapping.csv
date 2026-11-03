@@ -1,0 +1,212 @@
+Import Issue ID,Jira Issue Type,QA ID,Summary,Parent Epic,Relates to (QA IDs),Repository reference,Labels
+1,Epic,,Navigation,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-nav
+2,Epic,,Owners,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-own
+3,Epic,,Pets,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-pet
+4,Epic,,Visits,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-vis
+5,Epic,,Veterinarians,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-vet
+6,Epic,,Pet Types,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-pty
+7,Epic,,Specialties,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-spc
+8,Epic,,Regression / Cross-Module Consistency,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-reg
+9,Epic,,REST API,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-api
+10,Epic,,Security (non-invasive),,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-sec
+11,Epic,,Accessibility,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-a11y
+12,Epic,,Responsive / Cross-Browser,,,docs/TRACEABILITY-MATRIX.md,qa-portfolio module-rsp
+101,Story,NAV-S01,NAV-S01 · Navigate the application from the navigation bar,Navigation,,docs/TEST-SCENARIOS.md#nav-s01,qa-portfolio module-nav derived-from-observed-behaviour
+102,Story,NAV-S02,NAV-S02 · Open pages directly by URL and handle unknown URLs,Navigation,,docs/TEST-SCENARIOS.md#nav-s02,qa-portfolio module-nav derived-from-observed-behaviour
+103,Story,NAV-S03,NAV-S03 · Browser history and page titles,Navigation,,docs/TEST-SCENARIOS.md#nav-s03,qa-portfolio module-nav derived-from-observed-behaviour
+104,Story,OWN-S01,OWN-S01 · View the owner list,Owners,,docs/TEST-SCENARIOS.md#own-s01,qa-portfolio module-own derived-from-observed-behaviour
+105,Story,OWN-S02,OWN-S02 · Search owners by last name,Owners,,docs/TEST-SCENARIOS.md#own-s02,qa-portfolio module-own derived-from-observed-behaviour
+106,Story,OWN-S03,OWN-S03 · Register a new owner,Owners,,docs/TEST-SCENARIOS.md#own-s03,qa-portfolio module-own derived-from-observed-behaviour
+107,Story,OWN-S04,OWN-S04 · View owner details,Owners,,docs/TEST-SCENARIOS.md#own-s04,qa-portfolio module-own derived-from-observed-behaviour
+108,Story,OWN-S05,OWN-S05 · Edit owner details,Owners,,docs/TEST-SCENARIOS.md#own-s05,qa-portfolio module-own derived-from-observed-behaviour
+109,Story,PET-S01,PET-S01 · Add a pet to an owner,Pets,,docs/TEST-SCENARIOS.md#pet-s01,qa-portfolio module-pet derived-from-observed-behaviour
+110,Story,PET-S02,PET-S02 · Edit a pet,Pets,,docs/TEST-SCENARIOS.md#pet-s02,qa-portfolio module-pet derived-from-observed-behaviour
+111,Story,PET-S03,PET-S03 · Delete a pet,Pets,,docs/TEST-SCENARIOS.md#pet-s03,qa-portfolio module-pet derived-from-observed-behaviour
+112,Story,VIS-S01,VIS-S01 · Book a visit for a pet,Visits,,docs/TEST-SCENARIOS.md#vis-s01,qa-portfolio module-vis derived-from-observed-behaviour
+113,Story,VIS-S02,VIS-S02 · Edit a visit,Visits,,docs/TEST-SCENARIOS.md#vis-s02,qa-portfolio module-vis derived-from-observed-behaviour
+114,Story,VIS-S03,VIS-S03 · Delete a visit,Visits,,docs/TEST-SCENARIOS.md#vis-s03,qa-portfolio module-vis derived-from-observed-behaviour
+115,Story,VET-S01,VET-S01 · View the veterinarian list,Veterinarians,,docs/TEST-SCENARIOS.md#vet-s01,qa-portfolio module-vet derived-from-observed-behaviour
+116,Story,VET-S02,VET-S02 · Register a new veterinarian,Veterinarians,,docs/TEST-SCENARIOS.md#vet-s02,qa-portfolio module-vet derived-from-observed-behaviour
+117,Story,VET-S03,VET-S03 · Edit a veterinarian,Veterinarians,,docs/TEST-SCENARIOS.md#vet-s03,qa-portfolio module-vet derived-from-observed-behaviour
+118,Story,VET-S04,VET-S04 · Delete a veterinarian,Veterinarians,,docs/TEST-SCENARIOS.md#vet-s04,qa-portfolio module-vet derived-from-observed-behaviour
+119,Story,PTY-S01,PTY-S01 · View pet types,Pet Types,,docs/TEST-SCENARIOS.md#pty-s01,qa-portfolio module-pty derived-from-observed-behaviour
+120,Story,PTY-S02,PTY-S02 · Add a pet type,Pet Types,,docs/TEST-SCENARIOS.md#pty-s02,qa-portfolio module-pty derived-from-observed-behaviour
+121,Story,PTY-S03,PTY-S03 · Rename a pet type,Pet Types,,docs/TEST-SCENARIOS.md#pty-s03,qa-portfolio module-pty derived-from-observed-behaviour
+122,Story,PTY-S04,PTY-S04 · Delete a pet type,Pet Types,,docs/TEST-SCENARIOS.md#pty-s04,qa-portfolio module-pty derived-from-observed-behaviour
+123,Story,SPC-S01,SPC-S01 · View specialties,Specialties,,docs/TEST-SCENARIOS.md#spc-s01,qa-portfolio module-spc derived-from-observed-behaviour
+124,Story,SPC-S02,SPC-S02 · Add a specialty,Specialties,,docs/TEST-SCENARIOS.md#spc-s02,qa-portfolio module-spc derived-from-observed-behaviour
+125,Story,SPC-S03,SPC-S03 · Rename a specialty,Specialties,,docs/TEST-SCENARIOS.md#spc-s03,qa-portfolio module-spc derived-from-observed-behaviour
+126,Story,SPC-S04,SPC-S04 · Delete a specialty,Specialties,,docs/TEST-SCENARIOS.md#spc-s04,qa-portfolio module-spc derived-from-observed-behaviour
+127,Story,REG-S01,REG-S01 · Data consistency across modules,Regression / Cross-Module Consistency,,docs/TEST-SCENARIOS.md#reg-s01,qa-portfolio module-reg derived-from-observed-behaviour
+128,Story,REG-S02,REG-S02 · End-to-end clinic workflow,Regression / Cross-Module Consistency,,docs/TEST-SCENARIOS.md#reg-s02,qa-portfolio module-reg derived-from-observed-behaviour
+129,Story,API-S01,API-S01 · Owners API,REST API,,docs/TEST-SCENARIOS.md#api-s01,qa-portfolio module-api derived-from-observed-behaviour
+130,Story,API-S02,API-S02 · Pets and visits API,REST API,,docs/TEST-SCENARIOS.md#api-s02,qa-portfolio module-api derived-from-observed-behaviour
+131,Story,API-S03,API-S03 · Reference data and vets API,REST API,,docs/TEST-SCENARIOS.md#api-s03,qa-portfolio module-api derived-from-observed-behaviour
+132,Story,API-S04,"API-S04 · API access control, consistency and responsiveness",REST API,,docs/TEST-SCENARIOS.md#api-s04,qa-portfolio module-api derived-from-observed-behaviour
+133,Story,SEC-S01,SEC-S01 · Safe handling of script-like input,Security (non-invasive),,docs/TEST-SCENARIOS.md#sec-s01,qa-portfolio module-sec derived-from-observed-behaviour
+134,Story,SEC-S02,"SEC-S02 · Protection of tokens, errors and credentials",Security (non-invasive),,docs/TEST-SCENARIOS.md#sec-s02,qa-portfolio module-sec derived-from-observed-behaviour
+135,Story,A11Y-S01,A11Y-S01 · WCAG 2.1 A/AA automated scan,Accessibility,,docs/TEST-SCENARIOS.md#a11y-s01,qa-portfolio module-a11y derived-from-observed-behaviour
+136,Story,A11Y-S02,A11Y-S02 · Keyboard-only operation,Accessibility,,docs/TEST-SCENARIOS.md#a11y-s02,qa-portfolio module-a11y derived-from-observed-behaviour
+137,Story,A11Y-S03,A11Y-S03 · Accessible names for fields and indicators,Accessibility,,docs/TEST-SCENARIOS.md#a11y-s03,qa-portfolio module-a11y derived-from-observed-behaviour
+138,Story,RSP-S01,RSP-S01 · Tablet and mobile layout,Responsive / Cross-Browser,,docs/TEST-SCENARIOS.md#rsp-s01,qa-portfolio module-rsp derived-from-observed-behaviour
+139,Story,RSP-S02,RSP-S02 · Cross-browser and cross-device smoke,Responsive / Cross-Browser,,docs/TEST-SCENARIOS.md#rsp-s02,qa-portfolio module-rsp derived-from-observed-behaviour
+1001,Task (test case),NAV-001,NAV-001 · Home page shows the welcome message,Navigation,NAV-S01,tests/homework.spec.ts:7,qa-portfolio test-case module-nav type-functional type-smoke automated exec-passed smoke
+1002,Task (test case),NAV-002,NAV-002 · Top-level navbar links open the correct pages,Navigation,NAV-S01,tests/navigation/navigation.spec.ts:17,qa-portfolio test-case module-nav type-functional type-smoke automated exec-passed smoke
+1003,Task (test case),NAV-003,NAV-003 · Owners dropdown opens Search and Add New,Navigation,NAV-S01,tests/navigation/navigation.spec.ts:31,qa-portfolio test-case module-nav type-functional type-smoke automated exec-passed smoke
+1004,Task (test case),NAV-004,NAV-004 · Veterinarians dropdown opens All and Add New,Navigation,NAV-S01,tests/navigation/navigation.spec.ts:41,qa-portfolio test-case module-nav type-functional type-smoke automated exec-passed smoke
+1005,Task (test case),NAV-005,NAV-005 · Every route opens directly by URL,Navigation,NAV-S02,tests/navigation/navigation.spec.ts:51,qa-portfolio test-case module-nav type-functional type-regression automated exec-passed
+1006,Task (test case),NAV-006,NAV-006 · Unknown URL shows the 404 page,Navigation,NAV-S02,tests/navigation/navigation.spec.ts:59,qa-portfolio test-case module-nav type-functional type-negative automated exec-passed
+1007,Task (test case),NAV-007,NAV-007 · Browser back and forward keep the right page,Navigation,NAV-S03,tests/navigation/navigation.spec.ts:68,qa-portfolio test-case module-nav type-functional type-regression automated exec-passed
+1008,Task (test case),NAV-008,NAV-008 · Each page has a descriptive title,Navigation,NAV-S03,tests/navigation/navigation.spec.ts:80,qa-portfolio test-case module-nav type-functional type-accessibility automated exec-failed known-bug
+1009,Task (test case),OWN-001,OWN-001 · Owner list shows all owners with the expected columns,Owners,OWN-S01,tests/owners/owners.spec.ts:13,qa-portfolio test-case module-own type-functional type-smoke automated exec-passed smoke
+1010,Task (test case),OWN-002,OWN-002 · Search by full last name finds only matching owners,Owners,OWN-S02,tests/owners/owners.spec.ts:23,qa-portfolio test-case module-own type-functional type-smoke automated exec-passed smoke
+1011,Task (test case),OWN-003,OWN-003 · Search is case-insensitive,Owners,OWN-S02,tests/owners/owners.spec.ts:36,qa-portfolio test-case module-own type-functional type-regression automated exec-passed
+1012,Task (test case),OWN-004,OWN-004 · Search matches the start of the last name,Owners,OWN-S02,tests/owners/owners.spec.ts:45,qa-portfolio test-case module-own type-functional type-regression automated exec-passed
+1013,Task (test case),OWN-005,OWN-005 · Search with no match shows a message,Owners,OWN-S02,tests/owners/owners.spec.ts:57,qa-portfolio test-case module-own type-functional type-negative automated exec-passed
+1014,Task (test case),OWN-006,OWN-006 · Search with surrounding spaces,Owners,OWN-S02,tests/exploratory/exploratory.spec.ts:25,qa-portfolio test-case module-own type-functional type-exploratory automated exec-observation-recorded exploratory
+1015,Task (test case),OWN-007,OWN-007 · Empty search lists all owners,Owners,OWN-S02,tests/owners/owners.spec.ts:67,qa-portfolio test-case module-own type-functional type-regression automated exec-passed
+1016,Task (test case),OWN-008,OWN-008 · Create an owner with valid data,Owners,OWN-S03,tests/owners/owners.spec.ts:80,qa-portfolio test-case module-own type-functional type-smoke automated exec-passed smoke
+1017,Task (test case),OWN-009,OWN-009 · Add Owner stays disabled until the form is valid,Owners,OWN-S03,tests/owners/owners.spec.ts:99,qa-portfolio test-case module-own type-functional type-negative automated exec-passed
+1018,Task (test case),OWN-010,OWN-010 · Required-field messages on New Owner,Owners,OWN-S03,tests/owners/owners.spec.ts:118,qa-portfolio test-case module-own type-functional type-negative automated exec-passed
+1019,Task (test case),OWN-011,OWN-011 · First name minimum length (boundary),Owners,OWN-S03,tests/owners/owners.spec.ts:128,qa-portfolio test-case module-own type-functional type-negative automated exec-passed
+1020,Task (test case),OWN-012,OWN-012 · Telephone rejects non-digits,Owners,OWN-S03,tests/owners/owners.spec.ts:145,qa-portfolio test-case module-own type-functional type-negative automated exec-passed
+1021,Task (test case),OWN-013,OWN-013 · Telephone maximum length (boundary),Owners,OWN-S03,tests/owners/owners.spec.ts:160,qa-portfolio test-case module-own type-functional type-negative automated exec-passed
+1022,Task (test case),OWN-014,OWN-014 · Telephone with very few digits,Owners,OWN-S03,tests/exploratory/exploratory.spec.ts:35,qa-portfolio test-case module-own type-functional type-exploratory automated exec-observation-recorded exploratory
+1023,Task (test case),OWN-015,OWN-015 · Owner details show pets and visits,Owners,OWN-S04,tests/owners/owners.spec.ts:217,qa-portfolio test-case module-own type-functional type-smoke automated exec-passed smoke
+1024,Task (test case),OWN-016,OWN-016 · Edit an owner,Owners,OWN-S05,tests/owners/owners.spec.ts:239,qa-portfolio test-case module-own type-functional type-regression automated exec-passed
+1025,Task (test case),OWN-017,OWN-017 · Edit Owner validation,Owners,OWN-S05,tests/owners/owners.spec.ts:257,qa-portfolio test-case module-own type-functional type-negative automated exec-passed
+1026,Task (test case),OWN-018,OWN-018 · Back on Edit Owner discards changes,Owners,OWN-S05,tests/owners/owners.spec.ts:272,qa-portfolio test-case module-own type-functional type-regression automated exec-passed
+1027,Task (test case),OWN-019,OWN-019 · Back on New Owner creates nothing,Owners,OWN-S03,tests/owners/owners.spec.ts:170,qa-portfolio test-case module-own type-functional type-regression automated exec-passed
+1028,Task (test case),OWN-020,OWN-020 · Non-existent owner ID shows an error,Owners,OWN-S04,tests/owners/owners.spec.ts:286,qa-portfolio test-case module-own type-functional type-negative automated exec-failed known-bug
+1029,Task (test case),OWN-021,"OWN-021 · Special characters, Unicode and long values in owner fields",Owners,OWN-S03,tests/owners/owners.spec.ts:193,qa-portfolio test-case module-own type-functional type-negative automated exec-failed known-bug
+1030,Task (test case),PET-001,PET-001 · Add a pet to an owner,Pets,PET-S01,tests/pets/pets.spec.ts:5,qa-portfolio test-case module-pet type-functional type-smoke automated exec-passed smoke
+1031,Task (test case),PET-002,PET-002 · Add Pet form shows the owner,Pets,PET-S01,tests/pets/pets.spec.ts:24,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1032,Task (test case),PET-003,PET-003 · Type dropdown lists all pet types,Pets,PET-S01,tests/pets/pets.spec.ts:35,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1033,Task (test case),PET-004,PET-004 · Required-field messages on Add Pet,Pets,PET-S01,tests/pets/pets.spec.ts:46,qa-portfolio test-case module-pet type-functional type-negative automated exec-passed
+1034,Task (test case),PET-005,PET-005 · Save Pet on an empty form gives feedback,Pets,PET-S01,tests/pets/pets.spec.ts:61,qa-portfolio test-case module-pet type-functional type-negative automated exec-failed known-bug
+1035,Task (test case),PET-006,PET-006 · Birth date entered by typing,Pets,PET-S01,tests/pets/pets.spec.ts:75,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1036,Task (test case),PET-007,PET-007 · Birth date in the future,Pets,PET-S01,tests/exploratory/exploratory.spec.ts:50,qa-portfolio test-case module-pet type-functional type-exploratory automated exec-observation-recorded exploratory
+1037,Task (test case),PET-008,PET-008 · Edit a pet,Pets,PET-S02,tests/pets/pets.spec.ts:105,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1038,Task (test case),PET-009,PET-009 · Edit Pet form is pre-filled,Pets,PET-S02,tests/pets/pets.spec.ts:122,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1039,Task (test case),PET-010,PET-010 · Back on Edit Pet returns to the owner,Pets,PET-S02,tests/pets/pets.spec.ts:135,qa-portfolio test-case module-pet type-functional type-regression automated exec-failed known-bug
+1040,Task (test case),PET-011,PET-011 · Back on Add Pet creates nothing,Pets,PET-S01,tests/pets/pets.spec.ts:91,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1041,Task (test case),PET-012,PET-012 · Delete a pet,Pets,PET-S03,tests/pets/pets.spec.ts:149,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1042,Task (test case),PET-013,PET-013 · Deleting a pet asks for confirmation,Pets,PET-S03,tests/pets/pets.spec.ts:161,qa-portfolio test-case module-pet type-functional type-regression automated exec-failed known-bug
+1043,Task (test case),PET-014,PET-014 · Delete a pet that has visits,Pets,PET-S03,tests/pets/pets.spec.ts:178,qa-portfolio test-case module-pet type-functional type-regression automated exec-passed
+1044,Task (test case),VIS-001,VIS-001 · Add a visit,Visits,VIS-S01,tests/visits/visits.spec.ts:5,qa-portfolio test-case module-vis type-functional type-smoke automated exec-passed smoke
+1045,Task (test case),VIS-002,VIS-002 · New Visit page shows the pet,Visits,VIS-S01,tests/visits/visits.spec.ts:23,qa-portfolio test-case module-vis type-functional type-regression automated exec-passed
+1046,Task (test case),VIS-003,VIS-003 · New Visit page lists previous visits,Visits,VIS-S01,tests/visits/visits.spec.ts:34,qa-portfolio test-case module-vis type-functional type-regression automated exec-passed
+1047,Task (test case),VIS-004,VIS-004 · Description is required,Visits,VIS-S01,tests/visits/visits.spec.ts:45,qa-portfolio test-case module-vis type-functional type-negative automated exec-passed
+1048,Task (test case),VIS-005,VIS-005 · Empty New Visit form is not submitted,Visits,VIS-S01,tests/visits/visits.spec.ts:58,qa-portfolio test-case module-vis type-functional type-negative automated exec-failed known-bug
+1049,Task (test case),VIS-006,"VIS-006 · Date given, description empty",Visits,VIS-S01,tests/visits/visits.spec.ts:73,qa-portfolio test-case module-vis type-functional type-negative automated exec-passed
+1050,Task (test case),VIS-007,VIS-007 · Edit a visit,Visits,VIS-S02,tests/visits/visits.spec.ts:103,qa-portfolio test-case module-vis type-functional type-regression automated exec-passed
+1051,Task (test case),VIS-008,VIS-008 · Delete a visit,Visits,VIS-S03,tests/visits/visits.spec.ts:120,qa-portfolio test-case module-vis type-functional type-regression automated exec-passed
+1052,Task (test case),VIS-009,VIS-009 · Deleting a visit asks for confirmation,Visits,VIS-S03,tests/visits/visits.spec.ts:133,qa-portfolio test-case module-vis type-functional type-regression automated exec-failed known-bug
+1053,Task (test case),VIS-010,VIS-010 · Back on New Visit returns to the owner,Visits,VIS-S01,tests/visits/visits.spec.ts:88,qa-portfolio test-case module-vis type-functional type-regression automated exec-passed
+1054,Task (test case),VIS-011,VIS-011 · Visit date edge values,Visits,VIS-S01,tests/exploratory/exploratory.spec.ts:66,qa-portfolio test-case module-vis type-functional type-exploratory automated exec-observation-recorded exploratory
+1055,Task (test case),VET-001,VET-001 · Vet list shows names and specialties,Veterinarians,VET-S01,tests/vets/vets.spec.ts:5,qa-portfolio test-case module-vet type-functional type-smoke automated exec-passed smoke
+1056,Task (test case),VET-002,VET-002 · Create a vet with a specialty,Veterinarians,VET-S02,tests/vets/vets.spec.ts:23,qa-portfolio test-case module-vet type-functional type-smoke automated exec-passed smoke
+1057,Task (test case),VET-003,VET-003 · Create a vet without a specialty,Veterinarians,VET-S02,tests/vets/vets.spec.ts:37,qa-portfolio test-case module-vet type-functional type-regression automated exec-passed
+1058,Task (test case),VET-004,VET-004 · Required-field messages on New Veterinarian,Veterinarians,VET-S02,tests/vets/vets.spec.ts:50,qa-portfolio test-case module-vet type-functional type-negative automated exec-passed
+1059,Task (test case),VET-005,VET-005 · Save Vet on an empty form gives feedback,Veterinarians,VET-S02,tests/vets/vets.spec.ts:63,qa-portfolio test-case module-vet type-functional type-negative automated exec-failed known-bug
+1060,Task (test case),VET-006,VET-006 · New Veterinarian specialty field matches Edit Vet,Veterinarians,VET-S02,tests/vets/vets.spec.ts:77,qa-portfolio test-case module-vet type-functional type-regression automated exec-failed known-bug
+1061,Task (test case),VET-007,VET-007 · Edit a vet's names and specialties,Veterinarians,VET-S03,tests/vets/vets.spec.ts:92,qa-portfolio test-case module-vet type-functional type-regression automated exec-passed
+1062,Task (test case),VET-008,VET-008 · Edit Vet validation,Veterinarians,VET-S03,tests/vets/vets.spec.ts:113,qa-portfolio test-case module-vet type-functional type-negative automated exec-passed
+1063,Task (test case),VET-009,VET-009 · Delete a vet,Veterinarians,VET-S04,tests/vets/vets.spec.ts:128,qa-portfolio test-case module-vet type-functional type-regression automated exec-passed
+1064,Task (test case),VET-010,VET-010 · Deleting a vet asks for confirmation,Veterinarians,VET-S04,tests/vets/vets.spec.ts:138,qa-portfolio test-case module-vet type-functional type-regression automated exec-failed known-bug
+1065,Task (test case),VET-011,VET-011 · Back on Edit Vet discards changes,Veterinarians,VET-S03,tests/vets/vets.spec.ts:153,qa-portfolio test-case module-vet type-functional type-regression automated exec-passed
+1066,Task (test case),PTY-001,PTY-001 · Pet type list,Pet Types,PTY-S01,tests/pet-types/pet-types.spec.ts:12,qa-portfolio test-case module-pty type-functional type-smoke automated exec-passed smoke
+1067,Task (test case),PTY-002,PTY-002 · Add a pet type,Pet Types,PTY-S02,tests/pet-types/pet-types.spec.ts:25,qa-portfolio test-case module-pty type-functional type-smoke automated exec-passed smoke
+1068,Task (test case),PTY-003,PTY-003 · Pet type name is required on Add,Pet Types,PTY-S02,tests/pet-types/pet-types.spec.ts:40,qa-portfolio test-case module-pty type-functional type-negative automated exec-passed
+1069,Task (test case),PTY-004,PTY-004 · Rename a pet type and rename it back (course assignment),Pet Types,PTY-S03,tests/input-fields.spec.ts:25,qa-portfolio test-case module-pty type-functional type-regression automated exec-passed
+1070,Task (test case),PTY-005,PTY-005 · Cancel on Edit Pet Type keeps the name,Pet Types,PTY-S03,tests/pet-types/pet-types.spec.ts:56,qa-portfolio test-case module-pty type-functional type-regression automated exec-passed
+1071,Task (test case),PTY-006,PTY-006 · Edit Pet Type with an empty name,Pet Types,PTY-S03,tests/pet-types/pet-types.spec.ts:68,qa-portfolio test-case module-pty type-functional type-exploratory automated exec-observation-recorded exploratory
+1072,Task (test case),PTY-007,PTY-007 · Delete a pet type after confirming,Pet Types,PTY-S04,tests/pet-types/pet-types.spec.ts:84,qa-portfolio test-case module-pty type-functional type-regression automated exec-passed
+1073,Task (test case),PTY-008,PTY-008 · Cancel the delete confirmation,Pet Types,PTY-S04,tests/pet-types/pet-types.spec.ts:98,qa-portfolio test-case module-pty type-functional type-regression automated exec-passed
+1074,Task (test case),PTY-009,PTY-009 · Duplicate pet type name,Pet Types,PTY-S02,tests/pet-types/pet-types.spec.ts:109,qa-portfolio test-case module-pty type-functional type-exploratory automated exec-observation-recorded exploratory
+1075,Task (test case),PTY-010,PTY-010 · Delete a pet type that a pet uses,Pet Types,PTY-S04,tests/pet-types/pet-types.spec.ts:122,qa-portfolio test-case module-pty type-functional type-regression automated exec-failed known-bug
+1076,Task (test case),SPC-001,SPC-001 · Specialty list,Specialties,SPC-S01,tests/specialties/specialties.spec.ts:8,qa-portfolio test-case module-spc type-functional type-smoke automated exec-passed smoke
+1077,Task (test case),SPC-002,SPC-002 · Add a specialty,Specialties,SPC-S02,tests/specialties/specialties.spec.ts:21,qa-portfolio test-case module-spc type-functional type-smoke automated exec-passed smoke
+1078,Task (test case),SPC-003,SPC-003 · Empty specialty name is not saved,Specialties,SPC-S02,tests/specialties/specialties.spec.ts:36,qa-portfolio test-case module-spc type-functional type-negative automated exec-passed
+1079,Task (test case),SPC-004,SPC-004 · Rename a specialty,Specialties,SPC-S03,tests/specialties/specialties.spec.ts:51,qa-portfolio test-case module-spc type-functional type-regression automated exec-passed
+1080,Task (test case),SPC-005,SPC-005 · Cancel on Edit Specialty keeps the name,Specialties,SPC-S03,tests/specialties/specialties.spec.ts:62,qa-portfolio test-case module-spc type-functional type-regression automated exec-passed
+1081,Task (test case),SPC-006,SPC-006 · Delete a specialty,Specialties,SPC-S04,tests/specialties/specialties.spec.ts:74,qa-portfolio test-case module-spc type-functional type-regression automated exec-passed
+1082,Task (test case),SPC-007,SPC-007 · Deleting a specialty asks for confirmation,Specialties,SPC-S04,tests/specialties/specialties.spec.ts:84,qa-portfolio test-case module-spc type-functional type-regression automated exec-failed known-bug
+1083,Task (test case),SPC-008,SPC-008 · Delete a specialty that a vet has,Specialties,SPC-S04,tests/specialties/specialties.spec.ts:99,qa-portfolio test-case module-spc type-functional type-regression automated exec-passed
+1084,Task (test case),REG-001,REG-001 · Renamed pet type appears everywhere,Regression / Cross-Module Consistency,REG-S01,tests/regression/consistency.spec.ts:4,qa-portfolio test-case module-reg type-functional type-regression automated exec-passed
+1085,Task (test case),REG-002,REG-002 · New specialty is offered in the vet forms,Regression / Cross-Module Consistency,REG-S01,tests/regression/consistency.spec.ts:26,qa-portfolio test-case module-reg type-functional type-regression automated exec-passed
+1086,Task (test case),REG-003,REG-003 · Renamed specialty appears in the vet list,Regression / Cross-Module Consistency,REG-S01,tests/regression/consistency.spec.ts:39,qa-portfolio test-case module-reg type-functional type-regression automated exec-passed
+1087,Task (test case),REG-004,REG-004 · Edited owner appears in list and search,Regression / Cross-Module Consistency,REG-S01,tests/regression/consistency.spec.ts:52,qa-portfolio test-case module-reg type-functional type-regression automated exec-passed
+1088,Task (test case),REG-005,REG-005 · End-to-end clinic workflow,Regression / Cross-Module Consistency,REG-S02,tests/regression/consistency.spec.ts:70,qa-portfolio test-case module-reg type-functional type-smoke automated exec-passed smoke
+1089,Task (test case),REG-006,REG-006 · Data survives a full page reload,Regression / Cross-Module Consistency,REG-S01,tests/regression/consistency.spec.ts:111,qa-portfolio test-case module-reg type-functional type-regression automated exec-passed
+1090,Task (test case),API-001,API-001 · List owners,REST API,API-S01,tests/api/api.spec.ts:9,qa-portfolio test-case module-api type-smoke type-api automated exec-passed smoke
+1091,Task (test case),API-002,API-002 · Search owners by last name,REST API,API-S01,tests/api/api.spec.ts:28,qa-portfolio test-case module-api type-api automated exec-passed
+1092,Task (test case),API-003,API-003 · Owner search without a match (current behaviour: 404),REST API,API-S01,tests/api/api.spec.ts:40,qa-portfolio test-case module-api type-negative type-api automated exec-passed
+1093,Task (test case),API-004,"API-004 · Create, read and delete an owner",REST API,API-S01,tests/api/api.spec.ts:51,qa-portfolio test-case module-api type-api automated exec-passed
+1094,Task (test case),API-005,API-005 · Update an owner,REST API,API-S01,tests/api/api.spec.ts:68,qa-portfolio test-case module-api type-api automated exec-passed
+1095,Task (test case),API-006,API-006 · Unknown owner ID,REST API,API-S01,tests/api/api.spec.ts:78,qa-portfolio test-case module-api type-negative type-api automated exec-passed
+1096,Task (test case),API-007,API-007 · Create a pet for an owner,REST API,API-S02,tests/api/api.spec.ts:84,qa-portfolio test-case module-api type-api automated exec-passed
+1097,Task (test case),API-008,API-008 · Update and delete a pet,REST API,API-S02,tests/api/api.spec.ts:99,qa-portfolio test-case module-api type-api automated exec-passed
+1098,Task (test case),API-009,"API-009 · Create, update and delete a visit",REST API,API-S02,tests/api/api.spec.ts:111,qa-portfolio test-case module-api type-api automated exec-passed
+1099,Task (test case),API-010,API-010 · Visit with an invalid date is rejected,REST API,API-S02,tests/api/api.spec.ts:129,qa-portfolio test-case module-api type-negative type-api automated exec-passed
+1100,Task (test case),API-011,API-011 · Pet type CRUD,REST API,API-S03,tests/api/api.spec.ts:143,qa-portfolio test-case module-api type-api automated exec-passed
+1101,Task (test case),API-012,API-012 · Specialty CRUD,REST API,API-S03,tests/api/api.spec.ts:143,qa-portfolio test-case module-api type-api automated exec-passed
+1102,Task (test case),API-013,API-013 · Vet CRUD with specialties,REST API,API-S03,tests/api/api.spec.ts:161,qa-portfolio test-case module-api type-api automated exec-passed
+1103,Task (test case),API-014,API-014 · Missing required fields are rejected,REST API,API-S03,tests/api/api.spec.ts:187,qa-portfolio test-case module-api type-negative type-api automated exec-passed
+1104,Task (test case),API-015,API-015 · Requests without a token are rejected,REST API,API-S04,tests/api/api.spec.ts:197,qa-portfolio test-case module-api type-api type-security automated exec-passed
+1105,Task (test case),API-016,API-016 · Requests with an invalid token are rejected,REST API,API-S04,tests/api/api.spec.ts:210,qa-portfolio test-case module-api type-api type-security automated exec-passed
+1106,Task (test case),API-017,API-017 · UI and API show the same data,REST API,API-S04,tests/api/api.spec.ts:219,qa-portfolio test-case module-api type-regression type-api automated exec-passed
+1107,Task (test case),API-018,API-018 · Response times are reasonable,REST API,API-S04,tests/api/api.spec.ts:235,qa-portfolio test-case module-api type-api automated exec-passed
+1108,Task (test case),SEC-001,SEC-001 · Script-like input in owner fields is shown as text,Security (non-invasive),SEC-S01,tests/security/security.spec.ts:22,qa-portfolio test-case module-sec type-security automated exec-passed
+1109,Task (test case),SEC-002,SEC-002 · Script-like input in names of other entities,Security (non-invasive),SEC-S01,tests/security/security.spec.ts:44,qa-portfolio test-case module-sec type-security automated exec-passed
+1110,Task (test case),SEC-003,SEC-003 · Access token is sent only to the API,Security (non-invasive),SEC-S02,tests/security/security.spec.ts:65,qa-portfolio test-case module-sec type-security automated exec-passed
+1111,Task (test case),SEC-004,SEC-004 · API errors do not leak internal details,Security (non-invasive),SEC-S02,tests/security/security.spec.ts:93,qa-portfolio test-case module-sec type-api type-security automated exec-failed known-bug
+1112,Task (test case),SEC-005,SEC-005 · No credentials or tokens in the repository or reports,Security (non-invasive),SEC-S02,docs/TEST-CASES.md,qa-portfolio test-case module-sec type-security manual exec-not-executed
+1113,Task (test case),A11Y-001,A11Y-001 · Automated axe scan of every main page,Accessibility,A11Y-S01,tests/accessibility/accessibility.spec.ts:84,qa-portfolio test-case module-a11y type-accessibility automated exec-failed known-bug
+1114,Task (test case),A11Y-002,A11Y-002 · Navbar works with the keyboard only,Accessibility,A11Y-S02,tests/accessibility/accessibility.spec.ts:125,qa-portfolio test-case module-a11y type-accessibility automated exec-failed known-bug
+1115,Task (test case),A11Y-003,A11Y-003 · New Owner form can be completed with the keyboard,Accessibility,A11Y-S02,tests/accessibility/accessibility.spec.ts:150,qa-portfolio test-case module-a11y type-accessibility automated exec-passed
+1116,Task (test case),A11Y-004,A11Y-004 · Form fields have accessible names,Accessibility,A11Y-S03,tests/accessibility/accessibility.spec.ts:176,qa-portfolio test-case module-a11y type-accessibility automated exec-failed known-bug
+1117,Task (test case),A11Y-005,A11Y-005 · Visible focus indicator,Accessibility,A11Y-S02,docs/TEST-CASES.md,qa-portfolio test-case module-a11y type-accessibility manual exec-not-executed
+1118,Task (test case),A11Y-006,A11Y-006 · Date picker works with the keyboard,Accessibility,A11Y-S02,docs/TEST-CASES.md,qa-portfolio test-case module-a11y type-accessibility manual exec-not-executed
+1119,Task (test case),A11Y-007,A11Y-007 · Loading indicator has an accessible name,Accessibility,A11Y-S03,tests/accessibility/accessibility.spec.ts:204,qa-portfolio test-case module-a11y type-accessibility automated exec-failed known-bug
+1120,Task (test case),RSP-001,RSP-001 · Mobile navigation menu,Responsive / Cross-Browser,RSP-S01,tests/responsive/responsive.spec.ts:9,qa-portfolio test-case module-rsp type-responsive automated exec-passed
+1121,Task (test case),RSP-002,RSP-002 · No horizontal page scroll on tablet and mobile,Responsive / Cross-Browser,RSP-S01,tests/responsive/responsive.spec.ts:27,qa-portfolio test-case module-rsp type-responsive automated exec-failed known-bug
+1122,Task (test case),RSP-003,RSP-003 · Create an owner on mobile,Responsive / Cross-Browser,RSP-S02,docs/TEST-CASES.md,qa-portfolio test-case module-rsp type-smoke automated exec-passed smoke indirect-coverage
+1123,Task (test case),RSP-004,"RSP-004 · Smoke suite on Firefox, WebKit, tablet and mobile",Responsive / Cross-Browser,RSP-S02,docs/TEST-CASES.md,qa-portfolio test-case module-rsp type-smoke automated exec-passed smoke indirect-coverage
+2001,Bug,BUG-001,"BUG-001 · ""< Back"" on Edit Pet page does nothing",Pets,PET-010,docs/BUG-REPORTS.md#bug-001,qa-portfolio bug module-pet severity-minor still-present-2026-11-02
+2002,Bug,BUG-002,BUG-002 · Non-existent owner ID shows an empty owner page without an error,Owners,OWN-020,docs/BUG-REPORTS.md#bug-002,qa-portfolio bug module-own severity-minor still-present-2026-11-02
+2003,Bug,BUG-003,BUG-003 · Submitting an empty New Visit form sends an invalid request and fails silently,Visits,VIS-005,docs/BUG-REPORTS.md#bug-003,qa-portfolio bug module-vis severity-minor still-present-2026-11-02
+2004,Bug,BUG-004,"BUG-004 · Visits, pets, vets and specialties are deleted without confirmation",Pets,"PET-013, SPC-007, VET-010, VIS-009",docs/BUG-REPORTS.md#bug-004,qa-portfolio bug module-pet severity-minor still-present-2026-11-02
+2005,Bug,BUG-005,BUG-005 · Save Pet / Save Vet are enabled on an empty form and submit it anyway,Pets,"PET-005, VET-005",docs/BUG-REPORTS.md#bug-005,qa-portfolio bug module-pet severity-trivial still-present-2026-11-02
+2006,Bug,BUG-006,"BUG-006 · New Veterinarian form labels the specialty field ""Type"" and allows only one",Veterinarians,VET-006,docs/BUG-REPORTS.md#bug-006,qa-portfolio bug module-vet severity-trivial still-present-2026-11-02
+2007,Bug,BUG-007,BUG-007 · Every page has the same document title,Navigation,NAV-008,docs/BUG-REPORTS.md#bug-007,qa-portfolio bug module-nav severity-trivial still-present-2026-11-02
+2008,Bug,BUG-008,BUG-008 · API error responses expose Java class names and parser messages,Security (non-invasive),SEC-004,docs/BUG-REPORTS.md#bug-008,qa-portfolio bug module-sec severity-minor still-present-2026-11-02
+2009,Bug,BUG-009,BUG-009 · Deleting a pet type silently deletes every pet of that type and their visits,Pet Types,PTY-010,docs/BUG-REPORTS.md#bug-009,qa-portfolio bug module-pty severity-critical still-present-2026-11-02
+2010,Bug,BUG-010,"BUG-010 · Owners with accented, hyphenated or apostrophe names cannot be saved; no feedback",Owners,OWN-021,docs/BUG-REPORTS.md#bug-010,qa-portfolio bug module-own severity-minor still-present-2026-11-02
+2011,Bug,BUG-011,BUG-011 · Logo link in the navigation bar has no accessible name,Accessibility,A11Y-001,docs/BUG-REPORTS.md#bug-011,qa-portfolio bug module-a11y severity-trivial still-present-2026-11-02 accessibility
+2012,Bug,BUG-012,BUG-012 · Form fields have no label or accessible name,Accessibility,"A11Y-001, A11Y-004",docs/BUG-REPORTS.md#bug-012,qa-portfolio bug module-a11y severity-minor still-present-2026-11-02 accessibility
+2013,Bug,BUG-013,BUG-013 · Owners and Veterinarians menus cannot be reached with the keyboard,Accessibility,A11Y-002,docs/BUG-REPORTS.md#bug-013,qa-portfolio bug module-a11y severity-major still-present-2026-11-02 accessibility
+2014,Bug,BUG-014,BUG-014 · Owner details: invalid definition list structure,Accessibility,A11Y-001,docs/BUG-REPORTS.md#bug-014,qa-portfolio bug module-a11y severity-trivial still-present-2026-11-02 accessibility
+2015,Bug,BUG-015,BUG-015 · Loading spinner has no accessible name,Accessibility,A11Y-007,docs/BUG-REPORTS.md#bug-015,qa-portfolio bug module-a11y severity-trivial still-present-2026-11-02 accessibility
+2016,Bug,BUG-016,BUG-016 · Owner name links in the owner list have too little colour contrast,Accessibility,A11Y-001,docs/BUG-REPORTS.md#bug-016,qa-portfolio bug module-a11y severity-trivial still-present-2026-11-02 accessibility
+2017,Bug,BUG-017,BUG-017 · New Visit page is wider than phone screens (horizontal scrolling),Responsive / Cross-Browser,RSP-002,docs/BUG-REPORTS.md#bug-017,qa-portfolio bug module-rsp severity-minor still-present-2026-11-02
+3001,Task,OBS-001,OBS-001 · Owner search without a match returns HTTP 404 instead of 200 with an empty list,REST API,"API-003, OWN-005",docs/BUG-REPORTS.md#observations-not-filed-as-bugs,qa-portfolio observation module-api needs-requirement
+3002,Task,OBS-002,OBS-002 · Saving an empty specialty name still sends a request (rejected with 400),Specialties,SPC-003,docs/BUG-REPORTS.md#observations-not-filed-as-bugs,qa-portfolio observation module-spc needs-requirement
+3003,Task,OBS-003,OBS-003 · Telephone has no minimum length,Owners,"OWN-014, OWN-013",docs/BUG-REPORTS.md#observations-not-filed-as-bugs,qa-portfolio observation module-own needs-requirement
+3004,Task,OBS-004,OBS-004 · Debug messages written to the browser console in production,Navigation,,docs/BUG-REPORTS.md#observations-not-filed-as-bugs,qa-portfolio observation module-nav needs-requirement
+3005,Task,OBS-005,OBS-005 · Development API URL present in the production bundle,Security (non-invasive),SEC-003,docs/BUG-REPORTS.md#observations-not-filed-as-bugs,qa-portfolio observation module-sec needs-requirement
+4001,Task,TE-001,"TE-001 · Full regression execution – 2026-11-02 (209 runs, 5 projects)",,,docs/TEST-EXECUTION-REPORT.md,qa-portfolio test-execution regression exec-2026-11-02
+5001,Task,REC-001,REC-001 · Sign in with valid credentials and sign out (recommended),Security (non-invasive),,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-sec
+5002,Task,REC-002,REC-002 · Session expiry and token refresh (recommended),Security (non-invasive),,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-sec
+5003,Task,REC-003,REC-003 · Screen-reader walkthrough of the create-owner and add-visit flows (recommended),Accessibility,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-a11y
+5004,Task,REC-004,REC-004 · Text resize and zoom to 200% (recommended),Accessibility,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-a11y
+5005,Task,REC-005,REC-005 · Full functional suite on Firefox and WebKit (recommended),Responsive / Cross-Browser,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-rsp
+5006,Task,REC-006,REC-006 · Visit dated before the pet's birth date (recommended),Visits,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-vis
+5007,Task,REC-007,REC-007 · Edit Visit validation (empty description and date) (recommended),Visits,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-vis
+5008,Task,REC-008,REC-008 · Concurrent edit of the same owner in two browser tabs (recommended),Owners,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-own
+5009,Task,REC-009,REC-009 · Duplicate owner (same name and telephone) (recommended),Owners,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-own
+5010,Task,REC-010,REC-010 · Duplicate specialty name (recommended),Specialties,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-spc
+5011,Task,REC-011,REC-011 · Maximum length and special characters in the pet name (recommended),Pets,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-pet
+5012,Task,REC-012,REC-012 · Remove all specialties from a vet on Edit Vet (recommended),Veterinarians,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-vet
+5013,Task,REC-013,REC-013 · Page-load time baseline (single user) (recommended),Navigation,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-nav
+5014,Task,REC-014,REC-014 · Error messages announced to assistive technology (recommended),Accessibility,,docs/TEST-SCENARIOS.md#recommended-additional-coverage,qa-portfolio recommended-coverage not-implemented module-a11y

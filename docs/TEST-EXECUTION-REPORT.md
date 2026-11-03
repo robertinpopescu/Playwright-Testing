@@ -80,7 +80,7 @@ radiology/surgery/dentistry). None was changed by the run.
 
 ## 5. Results by spec file
 
-Counts are *tests run / of which expected failures*, per project.
+Counts are *tests run / of which expected failures*, per project. Paths are as they were at the time of the run: `a11y/` was renamed to `accessibility/` afterwards (commit `63be3b5`).
 
 | Spec file | chromium | firefox | webkit | tablet | mobile |
 |---|---|---|---|---|---|

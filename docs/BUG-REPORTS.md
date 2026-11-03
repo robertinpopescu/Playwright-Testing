@@ -49,7 +49,7 @@ When each bug was found:
 * **BUG-008 – BUG-010:** Phase 4.
 * **BUG-011 – BUG-017:** the Phase 4 accessibility and responsive tests. They were investigated and filed in Phase 6.
 
-The known-bug tests are marked with `test.fail()` and an `issue` annotation that names the bug ID. See [TEST-CASES.md](TEST-CASES.md#legend).
+The known-bug tests are marked with `test.fail()` and an `issue` annotation that names the bug ID. See [TEST-CASES.md](TEST-CASES.md#how-to-read-this-document).
 
 ---
 

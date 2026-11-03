@@ -19,9 +19,10 @@ Critical · High · Medium · Low.
 
 | Status | Meaning |
 |---|---|
-| Automated (exists) | Already automated in the repository |
-| To automate | Will be automated in Phase 4 |
-| To automate – known bug | Automated and marked with Playwright's `test.fail()` plus an `issue` annotation that names the bug (via the `knownBug()` helper in [fixtures/index.ts](../fixtures/index.ts)). The test asserts the **correct** behaviour:<br>• bug still present → reported as **expected to fail**, and the run stays green<br>• bug fixed → reported as a failure ("Expected to fail, but passed"); update BUG-REPORTS and remove `knownBug()`<br>• any other failure (setup before the bug check, cleanup after it) → reported as a **real** failure<br>`test.fail()` is set only when the bug assertion is reached, and a guard fixture checks that the bug assertion was the only error. `VERIFY_KNOWN_BUGS=1` runs these tests as normal tests, to see the real failure message. |
+| Automated (course assignment) | Automated before this QA project, as part of the course (`tests/homework.spec.ts`, `tests/input-fields.spec.ts`) |
+| Automated | Automated in Phase 4 (shown as "To automate" until the 2026-11-02 version of this document) |
+| Automated indirectly | No test of its own; covered by the `@smoke` tests that other Playwright projects run |
+| Automated – known bug | Automated and marked with Playwright's `test.fail()` plus an `issue` annotation that names the bug (via the `knownBug()` helper in [fixtures/index.ts](../fixtures/index.ts)). The test asserts the **correct** behaviour:<br>• bug still present → reported as **expected to fail**, and the run stays green<br>• bug fixed → reported as a failure ("Expected to fail, but passed"); update BUG-REPORTS and remove `knownBug()`<br>• any other failure (setup before the bug check, cleanup after it) → reported as a **real** failure<br>`test.fail()` is set only when the bug assertion is reached, and a guard fixture checks that the bug assertion was the only error. `VERIFY_KNOWN_BUGS=1` runs these tests as normal tests, to see the real failure message. |
 | Manual | Needs human judgement; run by hand and recorded in the execution report |
 | Exploratory | Behaviour has no stated requirement. The actual result is recorded; it is not judged pass/fail and is not filed as a bug unless it causes a failure or data problem. "Exploratory (automated, records the result)" = a test tagged `@exploratory` writes the observed result into the report and asserts only what must always hold |
 
@@ -79,7 +80,7 @@ These apply to **every** test case and are not repeated below.
 ## Navigation (NAV)
 
 ### NAV-001 – Home page shows the welcome message
-**Priority:** High · **Status:** Automated (exists) – `tests/homework.spec.ts` · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated (course assignment) – `tests/homework.spec.ts` · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -88,7 +89,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** Heading level 1 "Welcome to Petclinic" and heading level 2 "Welcome" are displayed.
 
 ### NAV-002 – Top-level navbar links open the correct pages
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** Links and expected results: Home → `/welcome`, "Welcome to Petclinic"; Pet Types → `/pettypes`, "Pet Types"; Specialties → `/specialties`, "Specialties".
@@ -97,7 +98,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** For each link, the URL and the heading match the test data.
 
 ### NAV-003 – Owners dropdown opens Search and Add New
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -109,7 +110,7 @@ These apply to **every** test case and are not repeated below.
   2. URL `/owners/add`, heading "New Owner".
 
 ### NAV-004 – Veterinarians dropdown opens All and Add New
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -121,7 +122,7 @@ These apply to **every** test case and are not repeated below.
   2. URL `/vets/add`, heading "New Veterinarian".
 
 ### NAV-005 – Every route opens directly by URL
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** –
 * **Test data:** `/owners` "Owners", `/owners/add` "New Owner", `/vets` "Veterinarians", `/vets/add` "New Veterinarian", `/pettypes` "Pet Types", `/specialties` "Specialties".
@@ -130,7 +131,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** Each page shows its heading; the navbar is present.
 
 ### NAV-006 – Unknown URL shows the 404 page
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** `/qa-no-such-page-<u>`
@@ -139,7 +140,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** The 404 page is shown ("Oops! Page not found !" and "Not Found - 404 error") and the navbar still works.
 
 ### NAV-007 – Browser back and forward keep the right page
-**Priority:** Low · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** Low · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** –
 * **Test data:** –
@@ -151,7 +152,7 @@ These apply to **every** test case and are not repeated below.
   2. Forward shows the "Pet Types" page.
 
 ### NAV-008 – Each page has a descriptive title
-**Priority:** Low · **Status:** To automate – known bug **BUG-007** · **Basis:** Consistency (WCAG 2.4.2) · **Tags:** @a11y
+**Priority:** Low · **Status:** Automated – known bug **BUG-007** · **Basis:** Consistency (WCAG 2.4.2) · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** Routes from NAV-005.
@@ -166,7 +167,7 @@ These apply to **every** test case and are not repeated below.
 ## Owners (OWN)
 
 ### OWN-001 – Owner list shows all owners with the expected columns
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -178,7 +179,7 @@ These apply to **every** test case and are not repeated below.
   * An **Add Owner** button is shown.
 
 ### OWN-002 – Search by full last name finds only matching owners
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** Two owners created via API: last names `Qa<u>` and `Qb<u>`.
 * **Test data:** Search `Qa<u>`.
@@ -188,7 +189,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** Only the `Qa<u>` owner is listed.
 
 ### OWN-003 – Search is case-insensitive
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner with last name `Qa<u>` (API).
 * **Test data:** Search `qa<u>` (all lower case).
@@ -197,7 +198,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** The owner is listed.
 
 ### OWN-004 – Search matches the start of the last name
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner with last name `Qa<u>` (API).
 * **Test data:**
@@ -210,7 +211,7 @@ These apply to **every** test case and are not repeated below.
   * A text from the middle or end of the name does not.
 
 ### OWN-005 – Search with no match shows a message
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** `Zz<u>`
@@ -228,7 +229,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** Record the behaviour. Currently no owner is found and the message is shown. Whether spaces should be trimmed is an open requirement question.
 
 ### OWN-007 – Empty search lists all owners
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:** –
 * **Test data:** Empty search field.
@@ -239,7 +240,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** All owners are listed again (same count as `GET /owners`).
 
 ### OWN-008 – Create an owner with valid data
-**Priority:** Critical · **Status:** To automate · **Basis:** Consistency · **Tags:** @smoke
+**Priority:** Critical · **Status:** Automated · **Basis:** Consistency · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** Standard owner.
@@ -255,7 +256,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** Delete the owner via API by ID.
 
 ### OWN-009 – Add Owner stays disabled until the form is valid
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** Standard owner.
@@ -265,7 +266,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** **Add Owner** is disabled while any field is empty and enabled once all five are valid.
 
 ### OWN-010 – Required-field messages on New Owner
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** –
@@ -277,7 +278,7 @@ These apply to **every** test case and are not repeated below.
   * **Add Owner** is disabled.
 
 ### OWN-011 – First name minimum length (boundary)
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** First name `A` (1 char), `Ab` (2), `Abc` (3); other fields standard.
@@ -288,7 +289,7 @@ These apply to **every** test case and are not repeated below.
   * `Ab` and `Abc` show no message and the button is enabled.
 
 ### OWN-012 – Telephone rejects non-digits
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** `abc`, `+40-721`, `608 555 00`
@@ -297,7 +298,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** "Phone number only accept digits" is shown and **Add Owner** is disabled.
 
 ### OWN-013 – Telephone maximum length (boundary)
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** 9 digits `608555000`, 10 digits `6085550000`, 11 digits `60855500001`.
@@ -318,7 +319,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** Delete the owner via API.
 
 ### OWN-015 – Owner details show pets and visits
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** Owner with one pet and one visit (API).
 * **Test data:** Standard owner, pet, visit.
@@ -332,7 +333,7 @@ These apply to **every** test case and are not repeated below.
   * The buttons Back, Edit Owner, Add New Pet, Edit Pet, Delete Pet, Add Visit, Edit Visit and Delete Visit are present.
 
 ### OWN-016 – Edit an owner
-**Priority:** High · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Owner (API).
 * **Test data:** New values: First `Qe<u>`, Last `Qe<u>`, Address `2 Edit Ave`, City `Editville`, Telephone `6085551111`.
@@ -345,7 +346,7 @@ These apply to **every** test case and are not repeated below.
   * `GET /owners/{id}` returns the new values.
 
 ### OWN-017 – Edit Owner validation
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** Owner (API).
 * **Test data:** –
@@ -358,7 +359,7 @@ These apply to **every** test case and are not repeated below.
   * No request is sent.
 
 ### OWN-018 – Back on Edit Owner discards changes
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner (API).
 * **Test data:** City `Changed<u>`
@@ -370,7 +371,7 @@ These apply to **every** test case and are not repeated below.
   * The City is unchanged in the UI and in `GET /owners/{id}`.
 
 ### OWN-019 – Back on New Owner creates nothing
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:** –
 * **Test data:** Standard owner.
@@ -383,7 +384,7 @@ These apply to **every** test case and are not repeated below.
   * `GET /owners?lastName=Qa<u>` returns no owner.
 
 ### OWN-020 – Non-existent owner ID shows an error
-**Priority:** Medium · **Status:** To automate – known bug **BUG-002** · **Basis:** Consistency · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated – known bug **BUG-002** · **Basis:** Consistency · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** `/owners/999999999`
@@ -393,7 +394,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** A blank owner page with both buttons; the API's 404 is ignored.
 
 ### OWN-021 – Special characters, Unicode and long values in owner fields
-**Priority:** Medium · **Status:** To automate (rows 1–4: known bug **BUG-010**) · **Basis:** Consistency · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated (rows 1–4: known bug **BUG-010**) · **Basis:** Consistency · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** Each row is one owner and one test. Fields not listed use the standard owner values.
@@ -404,8 +405,8 @@ These apply to **every** test case and are not repeated below.
   | 2 | Apostrophe in last name | Last Name `O'BrienQa<u>` | known bug BUG-010 |
   | 3 | Hyphenated last name | Last Name `Smith-Qa<u>` | known bug BUG-010 |
   | 4 | Unicode letters in last name | Last Name `MüllerQa<u>` | known bug BUG-010 |
-  | 5 | Unicode address and city | Address `Straße 5`, City `Łódź` | To automate |
-  | 6 | Long address | Address 255 × `a` | To automate |
+  | 5 | Unicode address and city | Address `Straße 5`, City `Łódź` | Automated |
+  | 6 | Long address | Address 255 × `a` | Automated |
 * **Steps:**
   1. Create each owner via the UI.
   2. Open the details page.
@@ -421,7 +422,7 @@ These apply to **every** test case and are not repeated below.
 ## Pets (PET)
 
 ### PET-001 – Add a pet to an owner
-**Priority:** Critical · **Status:** To automate · **Basis:** Consistency · **Tags:** @smoke
+**Priority:** Critical · **Status:** Automated · **Basis:** Consistency · **Tags:** @smoke
 
 * **Preconditions:** Owner (API).
 * **Test data:** Standard pet.
@@ -434,7 +435,7 @@ These apply to **every** test case and are not repeated below.
   * `POST /owners/{id}/pets` returns 201.
 
 ### PET-002 – Add Pet form shows the owner
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner (API).
 * **Test data:** –
@@ -445,7 +446,7 @@ These apply to **every** test case and are not repeated below.
   * The Owner field shows "`<first> <last>`" and is read-only.
 
 ### PET-003 – Type dropdown lists all pet types
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner and pet type `QaType<u>` (API).
 * **Test data:** –
@@ -455,7 +456,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** The options equal the names from `GET /pettypes`, including `QaType<u>`.
 
 ### PET-004 – Required-field messages on Add Pet
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** Owner (API).
 * **Test data:** –
@@ -465,7 +466,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** "Name is required" and "BirthDate is required" are shown.
 
 ### PET-005 – Save Pet on an empty form gives feedback
-**Priority:** Low · **Status:** To automate – known bug **BUG-005** · **Basis:** Consistency (Add Owner) · **Tags:** @negative
+**Priority:** Low · **Status:** Automated – known bug **BUG-005** · **Basis:** Consistency (Add Owner) · **Tags:** @negative
 
 * **Preconditions:** Owner (API).
 * **Test data:** –
@@ -476,7 +477,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** The button is enabled; nothing happens.
 
 ### PET-006 – Birth date entered by typing
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:** Owner (API).
 * **Test data:** Typed `2020/01/15` (the format the Edit Pet form displays).
@@ -497,7 +498,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete.
 
 ### PET-008 – Edit a pet
-**Priority:** High · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Name `Max<u>`, Birth Date 2019/06/01, Type `cat`.
@@ -511,7 +512,7 @@ These apply to **every** test case and are not repeated below.
   * `GET /pets/{id}` matches.
 
 ### PET-009 – Edit Pet form is pre-filled
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Standard pet.
@@ -524,7 +525,7 @@ These apply to **every** test case and are not repeated below.
   * Type: `dog`
 
 ### PET-010 – Back on Edit Pet returns to the owner
-**Priority:** Medium · **Status:** To automate – known bug **BUG-001** · **Basis:** Consistency (Back on other forms) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated – known bug **BUG-001** · **Basis:** Consistency (Back on other forms) · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** –
@@ -535,7 +536,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** Stays on `/pets/{id}/edit`.
 
 ### PET-011 – Back on Add Pet creates nothing
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:** Owner (API).
 * **Test data:** Standard pet.
@@ -548,7 +549,7 @@ These apply to **every** test case and are not repeated below.
   * The owner has no pets (`GET /owners/{id}`).
 
 ### PET-012 – Delete a pet
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** –
@@ -559,7 +560,7 @@ These apply to **every** test case and are not repeated below.
   * `GET /pets/{id}` no longer returns it.
 
 ### PET-013 – Deleting a pet asks for confirmation
-**Priority:** Medium · **Status:** To automate – known bug **BUG-004** · **Basis:** Consistency (pet type delete) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated – known bug **BUG-004** · **Basis:** Consistency (pet type delete) · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** –
@@ -570,7 +571,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** Deleted immediately.
 
 ### PET-014 – Delete a pet that has visits
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet that has one visit (API).
 * **Test data:** –
@@ -586,7 +587,7 @@ These apply to **every** test case and are not repeated below.
 ## Visits (VIS)
 
 ### VIS-001 – Add a visit
-**Priority:** Critical · **Status:** To automate · **Basis:** Consistency · **Tags:** @smoke
+**Priority:** Critical · **Status:** Automated · **Basis:** Consistency · **Tags:** @smoke
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Standard visit.
@@ -597,7 +598,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** The owner page shows the visit under the pet with date `2024-03-10` and the description.
 
 ### VIS-002 – New Visit page shows the pet
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Standard pet.
@@ -608,7 +609,7 @@ These apply to **every** test case and are not repeated below.
   * The pet table (Name, Birth Date, Type, Owner) shows the pet and its owner.
 
 ### VIS-003 – New Visit page lists previous visits
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Pet with one visit (API).
 * **Test data:** Standard visit.
@@ -617,7 +618,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** "Previous Visits" table (Visit Date, Description, Actions) lists the existing visit.
 
 ### VIS-004 – Description is required
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** –
@@ -627,7 +628,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** "Description is required" is shown.
 
 ### VIS-005 – Empty New Visit form is not submitted
-**Priority:** Medium · **Status:** To automate – known bug **BUG-003** · **Basis:** Consistency · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated – known bug **BUG-003** · **Basis:** Consistency · **Tags:** @negative
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** –
@@ -640,7 +641,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** `POST …/visits` with `"date":"Invalid date"` → 400, and no error is shown.
 
 ### VIS-006 – Date given, description empty
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @negative
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Date 2024-03-10, empty description.
@@ -653,7 +654,7 @@ These apply to **every** test case and are not repeated below.
 * **Observed in Phase 4:** no request is sent and no message is shown while Description was never touched.
 
 ### VIS-007 – Edit a visit
-**Priority:** High · **Status:** To automate · **Basis:** Consistency; form details Observed (Phase 4) · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Consistency; form details Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:** Pet with a visit (API).
 * **Test data:** Date 2024-04-20, Description `Edited <u>`.
@@ -666,7 +667,7 @@ These apply to **every** test case and are not repeated below.
   * `GET /visits/{id}` matches.
 
 ### VIS-008 – Delete a visit
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Pet with a visit (API).
 * **Test data:** –
@@ -678,7 +679,7 @@ These apply to **every** test case and are not repeated below.
   * The pet remains.
 
 ### VIS-009 – Deleting a visit asks for confirmation
-**Priority:** Medium · **Status:** To automate – known bug **BUG-004** · **Basis:** Consistency · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated – known bug **BUG-004** · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Pet with a visit (API).
 * **Test data:** –
@@ -689,7 +690,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** Deleted immediately.
 
 ### VIS-010 – Back on New Visit returns to the owner
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Description `Unsaved <u>`.
@@ -718,7 +719,7 @@ These apply to **every** test case and are not repeated below.
 ## Veterinarians (VET)
 
 ### VET-001 – Vet list shows names and specialties
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -732,7 +733,7 @@ These apply to **every** test case and are not repeated below.
   * The rows match `GET /vets` (names and specialty names).
 
 ### VET-002 – Create a vet with a specialty
-**Priority:** High · **Status:** To automate · **Basis:** Consistency · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Consistency · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** First `Qa<u>`, Last `Qa<u>`, Type `radiology`.
@@ -744,7 +745,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete.
 
 ### VET-003 – Create a vet without a specialty
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (field not required) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (field not required) · **Tags:** @regression
 
 * **Preconditions:** –
 * **Test data:** First `Qa<u>`, Last `Qa<u>`, no Type.
@@ -754,7 +755,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete.
 
 ### VET-004 – Required-field messages on New Veterinarian
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** –
@@ -764,7 +765,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** "First name is required" and "Last name is required" are shown.
 
 ### VET-005 – Save Vet on an empty form gives feedback
-**Priority:** Low · **Status:** To automate – known bug **BUG-005** · **Basis:** Consistency (Edit Vet) · **Tags:** @negative
+**Priority:** Low · **Status:** Automated – known bug **BUG-005** · **Basis:** Consistency (Edit Vet) · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** –
@@ -775,7 +776,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** The button is enabled; nothing happens.
 
 ### VET-006 – New Veterinarian specialty field matches Edit Vet
-**Priority:** Low · **Status:** To automate – known bug **BUG-006** · **Basis:** Consistency (Edit Vet) · **Tags:** @regression
+**Priority:** Low · **Status:** Automated – known bug **BUG-006** · **Basis:** Consistency (Edit Vet) · **Tags:** @regression
 
 * **Preconditions:** –
 * **Test data:** –
@@ -786,7 +787,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** It is labelled "Type" and is a single select.
 
 ### VET-007 – Edit a vet's names and specialties
-**Priority:** High · **Status:** To automate · **Basis:** Observed (multi-select) · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed (multi-select) · **Tags:** @regression
 
 * **Preconditions:** Vet with no specialty (API).
 * **Test data:** First `Qe<u>`, Last `Qe<u>`, Specialties `radiology` + `surgery`.
@@ -799,7 +800,7 @@ These apply to **every** test case and are not repeated below.
   * `GET /vets/{id}` matches.
 
 ### VET-008 – Edit Vet validation
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** Vet (API).
 * **Test data:** –
@@ -811,7 +812,7 @@ These apply to **every** test case and are not repeated below.
   * **Save Vet** is disabled.
 
 ### VET-009 – Delete a vet
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Vet (API).
 * **Test data:** –
@@ -822,7 +823,7 @@ These apply to **every** test case and are not repeated below.
   * `GET /vets/{id}` no longer returns it.
 
 ### VET-010 – Deleting a vet asks for confirmation
-**Priority:** Medium · **Status:** To automate – known bug **BUG-004** · **Basis:** Consistency · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated – known bug **BUG-004** · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Vet (API).
 * **Test data:** –
@@ -833,7 +834,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** Deleted immediately.
 
 ### VET-011 – Back on Edit Vet discards changes
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:** Vet (API).
 * **Test data:** First `Changed<u>`
@@ -850,7 +851,7 @@ These apply to **every** test case and are not repeated below.
 ## Pet Types (PTY)
 
 ### PTY-001 – Pet type list
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -863,7 +864,7 @@ These apply to **every** test case and are not repeated below.
   * The rows equal `GET /pettypes` names.
 
 ### PTY-002 – Add a pet type
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** `QaType<u>`
@@ -876,7 +877,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete.
 
 ### PTY-003 – Pet type name is required on Add
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** Empty name.
@@ -889,7 +890,7 @@ These apply to **every** test case and are not repeated below.
   * No row is added and `GET /pettypes` is unchanged.
 
 ### PTY-004 – Rename a pet type and rename it back (course assignment)
-**Priority:** High · **Status:** Automated (exists) – `tests/input-fields.spec.ts` · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated (course assignment) – `tests/input-fields.spec.ts` · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Pet type `QaType<u>` (API fixture).
 * **Test data:** Renamed to `QaRenamed<u>`.
@@ -903,7 +904,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** The fixture deletes the type by ID.
 
 ### PTY-005 – Cancel on Edit Pet Type keeps the name
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Pet type `QaType<u>` (API).
 * **Test data:** `Changed<u>`
@@ -928,7 +929,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete.
 
 ### PTY-007 – Delete a pet type after confirming
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Pet type `QaType<u>` (API).
 * **Test data:** –
@@ -940,7 +941,7 @@ These apply to **every** test case and are not repeated below.
   * `DELETE /pettypes/{id}` returns 204.
 
 ### PTY-008 – Cancel the delete confirmation
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Pet type `QaType<u>` (API).
 * **Test data:** –
@@ -961,7 +962,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete both.
 
 ### PTY-010 – Delete a pet type that a pet uses
-**Priority:** High · **Status:** To automate – known bug **BUG-009** · **Basis:** Consistency (no record loss without warning) · **Tags:** @regression
+**Priority:** High · **Status:** Automated – known bug **BUG-009** · **Basis:** Consistency (no record loss without warning) · **Tags:** @regression
 
 * **Preconditions:**
   * Pet type `QaType<u>` (API).
@@ -981,7 +982,7 @@ These apply to **every** test case and are not repeated below.
 ## Specialties (SPC)
 
 ### SPC-001 – Specialty list
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -994,7 +995,7 @@ These apply to **every** test case and are not repeated below.
   * The rows equal `GET /specialties` names.
 
 ### SPC-002 – Add a specialty
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** `QaSpec<u>`
@@ -1005,7 +1006,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete.
 
 ### SPC-003 – Empty specialty name is not saved
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @negative
 
 * **Preconditions:** –
 * **Test data:** Empty name.
@@ -1019,7 +1020,7 @@ These apply to **every** test case and are not repeated below.
 * **Observed in Phase 4:** the form still sends `POST /specialties`, which the API rejects with 400 ([OBS-002](BUG-REPORTS.md#obs-002)). The test records the status.
 
 ### SPC-004 – Rename a specialty
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Specialty `QaSpec<u>` (API).
 * **Test data:** `QaSpecRenamed<u>`
@@ -1029,7 +1030,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** The list shows the new name; the API matches.
 
 ### SPC-005 – Cancel on Edit Specialty keeps the name
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Specialty `QaSpec<u>` (API).
 * **Test data:** `Changed<u>`
@@ -1040,7 +1041,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** The name is unchanged in the list and the API.
 
 ### SPC-006 – Delete a specialty
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @regression
 
 * **Preconditions:** Specialty `QaSpec<u>` (API).
 * **Test data:** –
@@ -1049,7 +1050,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** It disappears from the list and from `GET /specialties`.
 
 ### SPC-007 – Deleting a specialty asks for confirmation
-**Priority:** Medium · **Status:** To automate – known bug **BUG-004** · **Basis:** Consistency · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated – known bug **BUG-004** · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Specialty `QaSpec<u>` (API).
 * **Test data:** –
@@ -1060,7 +1061,7 @@ These apply to **every** test case and are not repeated below.
 * **Current behaviour:** Deleted immediately.
 
 ### SPC-008 – Delete a specialty that a vet has
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @regression
 
 * **Preconditions:**
   * Specialty `QaSpec<u>` (API).
@@ -1079,7 +1080,7 @@ These apply to **every** test case and are not repeated below.
 ## Regression / consistency (REG)
 
 ### REG-001 – Renamed pet type appears everywhere
-**Priority:** High · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:**
   * Pet type `QaType<u>` (API).
@@ -1095,7 +1096,7 @@ These apply to **every** test case and are not repeated below.
   * In both pet forms, the Type field and dropdown show the new name; the old name is gone.
 
 ### REG-002 – New specialty is offered in the vet forms
-**Priority:** High · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Specialty `QaSpec<u>` (API).
 * **Test data:** –
@@ -1105,7 +1106,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** `QaSpec<u>` is an option in both forms.
 
 ### REG-003 – Renamed specialty appears in the vet list
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:**
   * Specialty `QaSpec<u>` (API).
@@ -1117,7 +1118,7 @@ These apply to **every** test case and are not repeated below.
 * **Expected result:** The vet's row shows `QaSpecRenamed<u>`.
 
 ### REG-004 – Edited owner appears in list and search
-**Priority:** High · **Status:** To automate · **Basis:** Consistency · **Tags:** @regression
+**Priority:** High · **Status:** Automated · **Basis:** Consistency · **Tags:** @regression
 
 * **Preconditions:** Owner `Qa<u>` (API).
 * **Test data:** New last name `Qe<u>`, new city `Editville`.
@@ -1130,7 +1131,7 @@ These apply to **every** test case and are not repeated below.
   * Searching `Qa<u>` no longer finds the owner.
 
 ### REG-005 – End-to-end clinic workflow
-**Priority:** Critical · **Status:** To automate · **Basis:** Consistency · **Tags:** @smoke
+**Priority:** Critical · **Status:** Automated · **Basis:** Consistency · **Tags:** @smoke
 
 * **Preconditions:** –
 * **Test data:** Standard owner, pet and visit.
@@ -1147,7 +1148,7 @@ These apply to **every** test case and are not repeated below.
 * **Cleanup:** API delete owner.
 
 ### REG-006 – Data survives a full page reload
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 2 `/seed` check) · **Tags:** @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 2 `/seed` check) · **Tags:** @regression
 
 * **Preconditions:** Pet type `QaType<u>` (API).
 * **Test data:** –
@@ -1166,7 +1167,7 @@ These apply to **every** test case and are not repeated below.
 All API cases use the `api` fixture (token sent only to the API host). Response-schema checks cover the fields the client uses; they are confirmed against real responses in Phase 4.
 
 ### API-001 – List owners
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @api @smoke
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @api @smoke
 
 * **Preconditions:** –
 * **Test data:** –
@@ -1177,7 +1178,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * Each item has `id`, `firstName`, `lastName`, `address`, `city`, `telephone` and `pets` (array).
 
 ### API-002 – Search owners by last name
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @api
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @api
 
 * **Preconditions:** Owner `Qa<u>` (API).
 * **Test data:** `?lastName=Qa<u>`, and the same in lower case.
@@ -1186,7 +1187,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** 200; the array contains only owners whose last name starts with the value, ignoring case.
 
 ### API-003 – Owner search without a match (current behaviour: 404)
-**Priority:** Low · **Status:** To automate · **Basis:** Observed – **current behaviour, not a requirement** · **Tags:** @api @negative
+**Priority:** Low · **Status:** Automated · **Basis:** Observed – **current behaviour, not a requirement** · **Tags:** @api @negative
 
 * **Preconditions:** –
 * **Test data:** `?lastName=Zz<u>`
@@ -1196,7 +1197,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Automation note:** The test title says "current behaviour" and the test carries a `current-behaviour` annotation that links to OBS-001. If the API changes to `200 []`, the test fails on purpose, so the observation and this case get updated.
 
 ### API-004 – Create, read and delete an owner
-**Priority:** High · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @api
+**Priority:** High · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @api
 
 * **Preconditions:** –
 * **Test data:** Standard owner as JSON.
@@ -1212,7 +1213,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * The final GET returns 404.
 
 ### API-005 – Update an owner
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @api
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @api
 
 * **Preconditions:** Owner (API).
 * **Test data:** City `Editville`.
@@ -1222,7 +1223,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** PUT returns 204; GET shows `Editville`.
 
 ### API-006 – Unknown owner ID
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @api @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @api @negative
 
 * **Preconditions:** –
 * **Test data:** `999999999`
@@ -1231,7 +1232,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** 404.
 
 ### API-007 – Create a pet for an owner
-**Priority:** High · **Status:** To automate · **Basis:** Observed · **Tags:** @api
+**Priority:** High · **Status:** Automated · **Basis:** Observed · **Tags:** @api
 
 * **Preconditions:** Owner (API).
 * **Test data:** Standard pet with type `{id, name}` taken from `GET /pettypes`.
@@ -1243,7 +1244,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * GET returns the name, birth date `2020-01-15` and type.
 
 ### API-008 – Update and delete a pet
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @api
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @api
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Name `Max<u>`.
@@ -1257,7 +1258,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * DELETE returns 204; the final GET returns 404.
 
 ### API-009 – Create, update and delete a visit
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @api
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @api
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** Standard visit.
@@ -1272,7 +1273,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * After the delete, `GET /visits/{id}` returns 404.
 
 ### API-010 – Visit with an invalid date is rejected
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed · **Tags:** @api @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed · **Tags:** @api @negative
 
 * **Preconditions:** Owner with a pet (API).
 * **Test data:** `"date": "Invalid date"`, description `x`.
@@ -1281,7 +1282,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** 400; no visit is created.
 
 ### API-011 – Pet type CRUD
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (201/204) · **Tags:** @api
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (201/204) · **Tags:** @api
 
 * **Preconditions:** –
 * **Test data:** `QaType<u>`, then `QaRenamed<u>`.
@@ -1299,7 +1300,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * The final GET returns 404.
 
 ### API-012 – Specialty CRUD
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @api
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @api
 
 * **Preconditions:** –
 * **Test data:** `QaSpec<u>`, then `QaSpecRenamed<u>`.
@@ -1307,7 +1308,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** Same status codes as API-011 (201, 200, 204, 204, 404).
 
 ### API-013 – Vet CRUD with specialties
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @api
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @api
 
 * **Preconditions:** –
 * **Test data:** Vet `Qa<u>` with specialty `radiology`.
@@ -1322,7 +1323,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * DELETE 204; afterwards GET returns 404.
 
 ### API-014 – Missing required fields are rejected
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4) · **Tags:** @api @negative
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4) · **Tags:** @api @negative
 
 * **Preconditions:** –
 * **Test data:**
@@ -1336,7 +1337,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
   * No record is created; anything created by mistake is deleted.
 
 ### API-015 – Requests without a token are rejected
-**Priority:** High · **Status:** To automate · **Basis:** Observed (401) · **Tags:** @api @security
+**Priority:** High · **Status:** Automated · **Basis:** Observed (401) · **Tags:** @api @security
 
 * **Preconditions:** A request context **without** an Authorization header.
 * **Test data:** `GET /owners`, `/pets`, `/visits`, `/vets`, `/pettypes`, `/specialties`.
@@ -1345,7 +1346,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** 401 for every request; no data in the body.
 
 ### API-016 – Requests with an invalid token are rejected
-**Priority:** High · **Status:** To automate · **Basis:** Observed (401) · **Tags:** @api @security
+**Priority:** High · **Status:** Automated · **Basis:** Observed (401) · **Tags:** @api @security
 
 * **Preconditions:** Context with `Authorization: Bearer invalid-token`.
 * **Test data:** Same endpoints as API-015.
@@ -1354,7 +1355,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** 401 for every request.
 
 ### API-017 – UI and API show the same data
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @api @regression
+**Priority:** Medium · **Status:** Automated · **Basis:** Consistency · **Tags:** @api @regression
 
 * **Preconditions:** –
 * **Test data:** –
@@ -1364,7 +1365,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 * **Expected result:** Names and counts match for each list.
 
 ### API-018 – Response times are reasonable
-**Priority:** Low · **Status:** To automate · **Basis:** – (soft check) · **Tags:** @api
+**Priority:** Low · **Status:** Automated · **Basis:** – (soft check) · **Tags:** @api
 
 * **Preconditions:** –
 * **Test data:** `GET /owners`, `/vets`, `/pettypes`.
@@ -1382,7 +1383,7 @@ All API cases use the `api` fixture (token sent only to the API host). Response-
 All security tests are non-invasive: they use only test-created records and never send attack traffic.
 
 ### SEC-001 – Script-like input in owner fields is shown as text
-**Priority:** High · **Status:** To automate · **Basis:** Observed (search) · **Tags:** @security
+**Priority:** High · **Status:** Automated · **Basis:** Observed (search) · **Tags:** @security
 
 * **Preconditions:** –
 * **Test data:** Name fields accept plain letters only (BUG-010), so the payloads go into the free-text fields and the search box:
@@ -1399,7 +1400,7 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Cleanup:** API delete.
 
 ### SEC-002 – Script-like input in names of other entities
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @security
+**Priority:** Medium · **Status:** Automated · **Basis:** Consistency · **Tags:** @security
 
 * **Preconditions:** –
 * **Test data:**
@@ -1413,7 +1414,7 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Cleanup:** API delete.
 
 ### SEC-003 – Access token is sent only to the API
-**Priority:** High · **Status:** To automate · **Basis:** Observed (verified in Phase 2) · **Tags:** @security
+**Priority:** High · **Status:** Automated · **Basis:** Observed (verified in Phase 2) · **Tags:** @security
 
 * **Preconditions:** –
 * **Test data:** –
@@ -1422,7 +1423,7 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Expected result:** No request to a host other than `petclinic-api.bondaracademy.com` carries an `Authorization` header.
 
 ### SEC-004 – API errors do not leak internal details
-**Priority:** Medium · **Status:** To automate – known bug **BUG-008** · **Basis:** Consistency · **Tags:** @security @api
+**Priority:** Medium · **Status:** Automated – known bug **BUG-008** · **Basis:** Consistency · **Tags:** @security @api
 
 * **Preconditions:** –
 * **Test data:** Responses from API-006, API-010, API-014 and API-015.
@@ -1447,7 +1448,7 @@ All security tests are non-invasive: they use only test-created records and neve
 ## Accessibility (A11Y)
 
 ### A11Y-001 – Automated axe scan of every main page
-**Priority:** Medium · **Status:** To automate – known bug **BUG-011**, **BUG-012**, **BUG-014**, **BUG-016** · **Basis:** Consistency (WCAG 2.x A/AA) · **Tags:** @a11y
+**Priority:** Medium · **Status:** Automated – known bug **BUG-011**, **BUG-012**, **BUG-014**, **BUG-016** · **Basis:** Consistency (WCAG 2.x A/AA) · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** Pages from NAV-005, plus the owner details, Add Pet and New Visit pages of a test-created owner.
@@ -1468,7 +1469,7 @@ All security tests are non-invasive: they use only test-created records and neve
   * Scanning before loading finished made the result change between runs: the spinner was flagged on some runs, and the list rows were not scanned yet. That spinner violation is filed as BUG-015 and tested by A11Y-007.
 
 ### A11Y-002 – Navbar works with the keyboard only
-**Priority:** Medium · **Status:** To automate – known bug **BUG-013** · **Basis:** Consistency · **Tags:** @a11y
+**Priority:** Medium · **Status:** Automated – known bug **BUG-013** · **Basis:** Consistency · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** –
@@ -1481,7 +1482,7 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Automation (Phase 6):** Menus that cannot be reached with Tab are collected. The known-bug assertion is that this list is empty. A menu that *can* be reached is then opened and checked as a normal test step.
 
 ### A11Y-003 – New Owner form can be completed with the keyboard
-**Priority:** Medium · **Status:** To automate · **Basis:** Consistency · **Tags:** @a11y
+**Priority:** Medium · **Status:** Automated · **Basis:** Consistency · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** Standard owner.
@@ -1494,7 +1495,7 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Cleanup:** API delete.
 
 ### A11Y-004 – Form fields have accessible names
-**Priority:** Medium · **Status:** To automate – known bug **BUG-012** · **Basis:** Observed (several fields have none) · **Tags:** @a11y
+**Priority:** Medium · **Status:** Automated – known bug **BUG-012** · **Basis:** Observed (several fields have none) · **Tags:** @a11y
 
 * **Preconditions:** –
 * **Test data:** Fields seen without a name in Phase 1:
@@ -1531,7 +1532,7 @@ All security tests are non-invasive: they use only test-created records and neve
   * Focus returns to the form.
 
 ### A11Y-007 – Loading indicator has an accessible name
-**Priority:** Low · **Status:** To automate – known bug **BUG-015** · **Basis:** Consistency (WCAG 4.1.2) · **Tags:** @a11y
+**Priority:** Low · **Status:** Automated – known bug **BUG-015** · **Basis:** Consistency (WCAG 4.1.2) · **Tags:** @a11y
 *Added in Phase 6.*
 
 * **Preconditions:** –
@@ -1548,7 +1549,7 @@ All security tests are non-invasive: they use only test-created records and neve
 ## Responsive / cross-browser (RSP)
 
 ### RSP-001 – Mobile navigation menu
-**Priority:** Medium · **Status:** To automate · **Basis:** Observed (Phase 4: the navbar does not collapse; all items stay visible at 390–412 px) · **Tags:** @responsive
+**Priority:** Medium · **Status:** Automated · **Basis:** Observed (Phase 4: the navbar does not collapse; all items stay visible at 390–412 px) · **Tags:** @responsive
 
 * **Preconditions:** `mobile` project (Pixel / iPhone viewport).
 * **Test data:** –
@@ -1561,7 +1562,7 @@ All security tests are non-invasive: they use only test-created records and neve
   * No navbar item is cut off or hidden without a way to reach it.
 
 ### RSP-002 – No horizontal page scroll on tablet and mobile
-**Priority:** Low · **Status:** To automate – known bug **BUG-017** (phones only) · **Basis:** Consistency (WCAG 1.4.10 Reflow) · **Tags:** @responsive
+**Priority:** Low · **Status:** Automated – known bug **BUG-017** (phones only) · **Basis:** Consistency (WCAG 1.4.10 Reflow) · **Tags:** @responsive
 
 * **Preconditions:** `tablet` and `mobile` projects; an owner with a pet (API).
 * **Test data:** Pages from NAV-005, plus the owner details, Add Pet and New Visit pages.
@@ -1577,7 +1578,7 @@ All security tests are non-invasive: they use only test-created records and neve
   * Only the New Visit overflow on screens narrower than Bootstrap's 768 px breakpoint counts as the known bug. Overflow on any other page, or on the tablet, fails normally.
 
 ### RSP-003 – Create an owner on mobile
-**Priority:** Medium · **Status:** To automate (no separate test: OWN-008 is `@smoke` and runs in the `mobile` project) · **Basis:** Consistency · **Tags:** @smoke
+**Priority:** Medium · **Status:** Automated indirectly (no separate test: OWN-008 is `@smoke` and runs in the `mobile` project) · **Basis:** Consistency · **Tags:** @smoke
 
 * **Preconditions:** `mobile` project.
 * **Test data:** Standard owner.
@@ -1586,7 +1587,7 @@ All security tests are non-invasive: they use only test-created records and neve
 * **Cleanup:** API delete.
 
 ### RSP-004 – Smoke suite on Firefox, WebKit, tablet and mobile
-**Priority:** High · **Status:** To automate (no separate test: the `firefox`, `webkit`, `tablet` and `mobile` projects run every `@smoke` test) · **Basis:** Consistency · **Tags:** @smoke
+**Priority:** High · **Status:** Automated indirectly (no separate test: the `firefox`, `webkit`, `tablet` and `mobile` projects run every `@smoke` test) · **Basis:** Consistency · **Tags:** @smoke
 
 * **Preconditions:** `firefox`, `webkit`, `tablet` and `mobile` projects (see `playwright.config.ts`).
 * **Test data:** –

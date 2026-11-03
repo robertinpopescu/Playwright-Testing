@@ -1,0 +1,124 @@
+Feature (Epic),Scenario / Story,Test Case ID,Test Case Title,Priority,Testing Type,Automation Status,Playwright Test,Playwright Projects,Execution Status (2026-11-02),Execution ID,Bugs,Jira Import Issue ID
+Navigation,NAV-S01,NAV-001,Home page shows the welcome message,High,"Functional, Smoke",Automated,tests/homework.spec.ts:7,chromium,Passed,TE-001,,1001
+Navigation,NAV-S01,NAV-002,Top-level navbar links open the correct pages,High,"Functional, Smoke",Automated,tests/navigation/navigation.spec.ts:17,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1002
+Navigation,NAV-S01,NAV-003,Owners dropdown opens Search and Add New,High,"Functional, Smoke",Automated,tests/navigation/navigation.spec.ts:31,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1003
+Navigation,NAV-S01,NAV-004,Veterinarians dropdown opens All and Add New,High,"Functional, Smoke",Automated,tests/navigation/navigation.spec.ts:41,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1004
+Navigation,NAV-S02,NAV-005,Every route opens directly by URL,Medium,"Functional, Regression",Automated,tests/navigation/navigation.spec.ts:51,chromium,Passed,TE-001,,1005
+Navigation,NAV-S02,NAV-006,Unknown URL shows the 404 page,Medium,"Functional, Negative",Automated,tests/navigation/navigation.spec.ts:59,chromium,Passed,TE-001,,1006
+Navigation,NAV-S03,NAV-007,Browser back and forward keep the right page,Low,"Functional, Regression",Automated,tests/navigation/navigation.spec.ts:68,chromium,Passed,TE-001,,1007
+Navigation,NAV-S03,NAV-008,Each page has a descriptive title,Low,"Functional, Accessibility",Automated (known-bug test),tests/navigation/navigation.spec.ts:80,chromium,Failed (confirmed bug),TE-001,BUG-007,1008
+Owners,OWN-S01,OWN-001,Owner list shows all owners with the expected columns,High,"Functional, Smoke",Automated,tests/owners/owners.spec.ts:13,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1009
+Owners,OWN-S02,OWN-002,Search by full last name finds only matching owners,High,"Functional, Smoke",Automated,tests/owners/owners.spec.ts:23,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1010
+Owners,OWN-S02,OWN-003,Search is case-insensitive,Medium,"Functional, Regression",Automated,tests/owners/owners.spec.ts:36,chromium,Passed,TE-001,,1011
+Owners,OWN-S02,OWN-004,Search matches the start of the last name,Medium,"Functional, Regression",Automated,tests/owners/owners.spec.ts:45,chromium,Passed,TE-001,,1012
+Owners,OWN-S02,OWN-005,Search with no match shows a message,Medium,"Functional, Negative",Automated,tests/owners/owners.spec.ts:57,chromium,Passed,TE-001,,1013
+Owners,OWN-S02,OWN-006,Search with surrounding spaces,Low,"Functional, Exploratory",Automated (exploratory),tests/exploratory/exploratory.spec.ts:25,chromium,Observation recorded,TE-001,,1014
+Owners,OWN-S02,OWN-007,Empty search lists all owners,Medium,"Functional, Regression",Automated,tests/owners/owners.spec.ts:67,chromium,Passed,TE-001,,1015
+Owners,OWN-S03,OWN-008,Create an owner with valid data,Critical,"Functional, Smoke",Automated,tests/owners/owners.spec.ts:80,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1016
+Owners,OWN-S03,OWN-009,Add Owner stays disabled until the form is valid,High,"Functional, Negative",Automated,tests/owners/owners.spec.ts:99,chromium,Passed,TE-001,,1017
+Owners,OWN-S03,OWN-010,Required-field messages on New Owner,High,"Functional, Negative",Automated,tests/owners/owners.spec.ts:118,chromium,Passed,TE-001,,1018
+Owners,OWN-S03,OWN-011,First name minimum length (boundary),Medium,"Functional, Negative",Automated,tests/owners/owners.spec.ts:128,chromium,Passed,TE-001,,1019
+Owners,OWN-S03,OWN-012,Telephone rejects non-digits,Medium,"Functional, Negative",Automated,tests/owners/owners.spec.ts:145,chromium,Passed,TE-001,,1020
+Owners,OWN-S03,OWN-013,Telephone maximum length (boundary),Medium,"Functional, Negative",Automated,tests/owners/owners.spec.ts:160,chromium,Passed,TE-001,,1021
+Owners,OWN-S03,OWN-014,Telephone with very few digits,Low,"Functional, Exploratory",Automated (exploratory),tests/exploratory/exploratory.spec.ts:35,chromium,Observation recorded,TE-001,,1022
+Owners,OWN-S04,OWN-015,Owner details show pets and visits,High,"Functional, Smoke",Automated,tests/owners/owners.spec.ts:217,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1023
+Owners,OWN-S05,OWN-016,Edit an owner,High,"Functional, Regression",Automated,tests/owners/owners.spec.ts:239,chromium,Passed,TE-001,,1024
+Owners,OWN-S05,OWN-017,Edit Owner validation,Medium,"Functional, Negative",Automated,tests/owners/owners.spec.ts:257,chromium,Passed,TE-001,,1025
+Owners,OWN-S05,OWN-018,Back on Edit Owner discards changes,Medium,"Functional, Regression",Automated,tests/owners/owners.spec.ts:272,chromium,Passed,TE-001,,1026
+Owners,OWN-S03,OWN-019,Back on New Owner creates nothing,Medium,"Functional, Regression",Automated,tests/owners/owners.spec.ts:170,chromium,Passed,TE-001,,1027
+Owners,OWN-S04,OWN-020,Non-existent owner ID shows an error,Medium,"Functional, Negative",Automated (known-bug test),tests/owners/owners.spec.ts:286,chromium,Failed (confirmed bug),TE-001,BUG-002,1028
+Owners,OWN-S03,OWN-021,"Special characters, Unicode and long values in owner fields",Medium,"Functional, Negative",Automated (known-bug test),tests/owners/owners.spec.ts:193,chromium,Failed (confirmed bug),TE-001,BUG-010,1029
+Pets,PET-S01,PET-001,Add a pet to an owner,Critical,"Functional, Smoke",Automated,tests/pets/pets.spec.ts:5,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1030
+Pets,PET-S01,PET-002,Add Pet form shows the owner,Medium,"Functional, Regression",Automated,tests/pets/pets.spec.ts:24,chromium,Passed,TE-001,,1031
+Pets,PET-S01,PET-003,Type dropdown lists all pet types,High,"Functional, Regression",Automated,tests/pets/pets.spec.ts:35,chromium,Passed,TE-001,,1032
+Pets,PET-S01,PET-004,Required-field messages on Add Pet,Medium,"Functional, Negative",Automated,tests/pets/pets.spec.ts:46,chromium,Passed,TE-001,,1033
+Pets,PET-S01,PET-005,Save Pet on an empty form gives feedback,Low,"Functional, Negative",Automated (known-bug test),tests/pets/pets.spec.ts:61,chromium,Failed (confirmed bug),TE-001,BUG-005,1034
+Pets,PET-S01,PET-006,Birth date entered by typing,Medium,"Functional, Regression",Automated,tests/pets/pets.spec.ts:75,chromium,Passed,TE-001,,1035
+Pets,PET-S01,PET-007,Birth date in the future,Low,"Functional, Exploratory",Automated (exploratory),tests/exploratory/exploratory.spec.ts:50,chromium,Observation recorded,TE-001,,1036
+Pets,PET-S02,PET-008,Edit a pet,High,"Functional, Regression",Automated,tests/pets/pets.spec.ts:105,chromium,Passed,TE-001,,1037
+Pets,PET-S02,PET-009,Edit Pet form is pre-filled,Medium,"Functional, Regression",Automated,tests/pets/pets.spec.ts:122,chromium,Passed,TE-001,,1038
+Pets,PET-S02,PET-010,Back on Edit Pet returns to the owner,Medium,"Functional, Regression",Automated (known-bug test),tests/pets/pets.spec.ts:135,chromium,Failed (confirmed bug),TE-001,BUG-001,1039
+Pets,PET-S01,PET-011,Back on Add Pet creates nothing,Medium,"Functional, Regression",Automated,tests/pets/pets.spec.ts:91,chromium,Passed,TE-001,,1040
+Pets,PET-S03,PET-012,Delete a pet,High,"Functional, Regression",Automated,tests/pets/pets.spec.ts:149,chromium,Passed,TE-001,,1041
+Pets,PET-S03,PET-013,Deleting a pet asks for confirmation,Medium,"Functional, Regression",Automated (known-bug test),tests/pets/pets.spec.ts:161,chromium,Failed (confirmed bug),TE-001,BUG-004,1042
+Pets,PET-S03,PET-014,Delete a pet that has visits,Medium,"Functional, Regression",Automated,tests/pets/pets.spec.ts:178,chromium,Passed,TE-001,,1043
+Visits,VIS-S01,VIS-001,Add a visit,Critical,"Functional, Smoke",Automated,tests/visits/visits.spec.ts:5,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1044
+Visits,VIS-S01,VIS-002,New Visit page shows the pet,Medium,"Functional, Regression",Automated,tests/visits/visits.spec.ts:23,chromium,Passed,TE-001,,1045
+Visits,VIS-S01,VIS-003,New Visit page lists previous visits,Medium,"Functional, Regression",Automated,tests/visits/visits.spec.ts:34,chromium,Passed,TE-001,,1046
+Visits,VIS-S01,VIS-004,Description is required,Medium,"Functional, Negative",Automated,tests/visits/visits.spec.ts:45,chromium,Passed,TE-001,,1047
+Visits,VIS-S01,VIS-005,Empty New Visit form is not submitted,Medium,"Functional, Negative",Automated (known-bug test),tests/visits/visits.spec.ts:58,chromium,Failed (confirmed bug),TE-001,BUG-003,1048
+Visits,VIS-S01,VIS-006,"Date given, description empty",Medium,"Functional, Negative",Automated,tests/visits/visits.spec.ts:73,chromium,Passed,TE-001,,1049
+Visits,VIS-S02,VIS-007,Edit a visit,High,"Functional, Regression",Automated,tests/visits/visits.spec.ts:103,chromium,Passed,TE-001,,1050
+Visits,VIS-S03,VIS-008,Delete a visit,High,"Functional, Regression",Automated,tests/visits/visits.spec.ts:120,chromium,Passed,TE-001,,1051
+Visits,VIS-S03,VIS-009,Deleting a visit asks for confirmation,Medium,"Functional, Regression",Automated (known-bug test),tests/visits/visits.spec.ts:133,chromium,Failed (confirmed bug),TE-001,BUG-004,1052
+Visits,VIS-S01,VIS-010,Back on New Visit returns to the owner,Medium,"Functional, Regression",Automated,tests/visits/visits.spec.ts:88,chromium,Passed,TE-001,,1053
+Visits,VIS-S01,VIS-011,Visit date edge values,Low,"Functional, Exploratory",Automated (exploratory),tests/exploratory/exploratory.spec.ts:66,chromium,Observation recorded,TE-001,,1054
+Veterinarians,VET-S01,VET-001,Vet list shows names and specialties,High,"Functional, Smoke",Automated,tests/vets/vets.spec.ts:5,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1055
+Veterinarians,VET-S02,VET-002,Create a vet with a specialty,High,"Functional, Smoke",Automated,tests/vets/vets.spec.ts:23,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1056
+Veterinarians,VET-S02,VET-003,Create a vet without a specialty,Medium,"Functional, Regression",Automated,tests/vets/vets.spec.ts:37,chromium,Passed,TE-001,,1057
+Veterinarians,VET-S02,VET-004,Required-field messages on New Veterinarian,Medium,"Functional, Negative",Automated,tests/vets/vets.spec.ts:50,chromium,Passed,TE-001,,1058
+Veterinarians,VET-S02,VET-005,Save Vet on an empty form gives feedback,Low,"Functional, Negative",Automated (known-bug test),tests/vets/vets.spec.ts:63,chromium,Failed (confirmed bug),TE-001,BUG-005,1059
+Veterinarians,VET-S02,VET-006,New Veterinarian specialty field matches Edit Vet,Low,"Functional, Regression",Automated (known-bug test),tests/vets/vets.spec.ts:77,chromium,Failed (confirmed bug),TE-001,BUG-006,1060
+Veterinarians,VET-S03,VET-007,Edit a vet's names and specialties,High,"Functional, Regression",Automated,tests/vets/vets.spec.ts:92,chromium,Passed,TE-001,,1061
+Veterinarians,VET-S03,VET-008,Edit Vet validation,Medium,"Functional, Negative",Automated,tests/vets/vets.spec.ts:113,chromium,Passed,TE-001,,1062
+Veterinarians,VET-S04,VET-009,Delete a vet,High,"Functional, Regression",Automated,tests/vets/vets.spec.ts:128,chromium,Passed,TE-001,,1063
+Veterinarians,VET-S04,VET-010,Deleting a vet asks for confirmation,Medium,"Functional, Regression",Automated (known-bug test),tests/vets/vets.spec.ts:138,chromium,Failed (confirmed bug),TE-001,BUG-004,1064
+Veterinarians,VET-S03,VET-011,Back on Edit Vet discards changes,Medium,"Functional, Regression",Automated,tests/vets/vets.spec.ts:153,chromium,Passed,TE-001,,1065
+Pet Types,PTY-S01,PTY-001,Pet type list,High,"Functional, Smoke",Automated,tests/pet-types/pet-types.spec.ts:12,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1066
+Pet Types,PTY-S02,PTY-002,Add a pet type,High,"Functional, Smoke",Automated,tests/pet-types/pet-types.spec.ts:25,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1067
+Pet Types,PTY-S02,PTY-003,Pet type name is required on Add,Medium,"Functional, Negative",Automated,tests/pet-types/pet-types.spec.ts:40,chromium,Passed,TE-001,,1068
+Pet Types,PTY-S03,PTY-004,Rename a pet type and rename it back (course assignment),High,"Functional, Regression",Automated,tests/input-fields.spec.ts:25,chromium,Passed,TE-001,,1069
+Pet Types,PTY-S03,PTY-005,Cancel on Edit Pet Type keeps the name,Medium,"Functional, Regression",Automated,tests/pet-types/pet-types.spec.ts:56,chromium,Passed,TE-001,,1070
+Pet Types,PTY-S03,PTY-006,Edit Pet Type with an empty name,Medium,"Functional, Exploratory",Automated (exploratory),tests/pet-types/pet-types.spec.ts:68,chromium,Observation recorded,TE-001,,1071
+Pet Types,PTY-S04,PTY-007,Delete a pet type after confirming,High,"Functional, Regression",Automated,tests/pet-types/pet-types.spec.ts:84,chromium,Passed,TE-001,,1072
+Pet Types,PTY-S04,PTY-008,Cancel the delete confirmation,Medium,"Functional, Regression",Automated,tests/pet-types/pet-types.spec.ts:98,chromium,Passed,TE-001,,1073
+Pet Types,PTY-S02,PTY-009,Duplicate pet type name,Low,"Functional, Exploratory",Automated (exploratory),tests/pet-types/pet-types.spec.ts:109,chromium,Observation recorded,TE-001,,1074
+Pet Types,PTY-S04,PTY-010,Delete a pet type that a pet uses,High,"Functional, Regression",Automated (known-bug test),tests/pet-types/pet-types.spec.ts:122,chromium,Failed (confirmed bug),TE-001,BUG-009,1075
+Specialties,SPC-S01,SPC-001,Specialty list,High,"Functional, Smoke",Automated,tests/specialties/specialties.spec.ts:8,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1076
+Specialties,SPC-S02,SPC-002,Add a specialty,High,"Functional, Smoke",Automated,tests/specialties/specialties.spec.ts:21,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1077
+Specialties,SPC-S02,SPC-003,Empty specialty name is not saved,Medium,"Functional, Negative",Automated,tests/specialties/specialties.spec.ts:36,chromium,Passed,TE-001,,1078
+Specialties,SPC-S03,SPC-004,Rename a specialty,High,"Functional, Regression",Automated,tests/specialties/specialties.spec.ts:51,chromium,Passed,TE-001,,1079
+Specialties,SPC-S03,SPC-005,Cancel on Edit Specialty keeps the name,Medium,"Functional, Regression",Automated,tests/specialties/specialties.spec.ts:62,chromium,Passed,TE-001,,1080
+Specialties,SPC-S04,SPC-006,Delete a specialty,High,"Functional, Regression",Automated,tests/specialties/specialties.spec.ts:74,chromium,Passed,TE-001,,1081
+Specialties,SPC-S04,SPC-007,Deleting a specialty asks for confirmation,Medium,"Functional, Regression",Automated (known-bug test),tests/specialties/specialties.spec.ts:84,chromium,Failed (confirmed bug),TE-001,BUG-004,1082
+Specialties,SPC-S04,SPC-008,Delete a specialty that a vet has,Medium,"Functional, Regression",Automated,tests/specialties/specialties.spec.ts:99,chromium,Passed,TE-001,,1083
+Regression / Cross-Module Consistency,REG-S01,REG-001,Renamed pet type appears everywhere,High,"Functional, Regression",Automated,tests/regression/consistency.spec.ts:4,chromium,Passed,TE-001,,1084
+Regression / Cross-Module Consistency,REG-S01,REG-002,New specialty is offered in the vet forms,High,"Functional, Regression",Automated,tests/regression/consistency.spec.ts:26,chromium,Passed,TE-001,,1085
+Regression / Cross-Module Consistency,REG-S01,REG-003,Renamed specialty appears in the vet list,Medium,"Functional, Regression",Automated,tests/regression/consistency.spec.ts:39,chromium,Passed,TE-001,,1086
+Regression / Cross-Module Consistency,REG-S01,REG-004,Edited owner appears in list and search,High,"Functional, Regression",Automated,tests/regression/consistency.spec.ts:52,chromium,Passed,TE-001,,1087
+Regression / Cross-Module Consistency,REG-S02,REG-005,End-to-end clinic workflow,Critical,"Functional, Smoke",Automated,tests/regression/consistency.spec.ts:70,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1088
+Regression / Cross-Module Consistency,REG-S01,REG-006,Data survives a full page reload,Medium,"Functional, Regression",Automated,tests/regression/consistency.spec.ts:111,chromium,Passed,TE-001,,1089
+REST API,API-S01,API-001,List owners,High,"Smoke, API",Automated,tests/api/api.spec.ts:9,"chromium, firefox, webkit, tablet, mobile",Passed,TE-001,,1090
+REST API,API-S01,API-002,Search owners by last name,Medium,API,Automated,tests/api/api.spec.ts:28,chromium,Passed,TE-001,,1091
+REST API,API-S01,API-003,Owner search without a match (current behaviour: 404),Low,"Negative, API",Automated,tests/api/api.spec.ts:40,chromium,Passed,TE-001,,1092
+REST API,API-S01,API-004,"Create, read and delete an owner",High,API,Automated,tests/api/api.spec.ts:51,chromium,Passed,TE-001,,1093
+REST API,API-S01,API-005,Update an owner,Medium,API,Automated,tests/api/api.spec.ts:68,chromium,Passed,TE-001,,1094
+REST API,API-S01,API-006,Unknown owner ID,Medium,"Negative, API",Automated,tests/api/api.spec.ts:78,chromium,Passed,TE-001,,1095
+REST API,API-S02,API-007,Create a pet for an owner,High,API,Automated,tests/api/api.spec.ts:84,chromium,Passed,TE-001,,1096
+REST API,API-S02,API-008,Update and delete a pet,Medium,API,Automated,tests/api/api.spec.ts:99,chromium,Passed,TE-001,,1097
+REST API,API-S02,API-009,"Create, update and delete a visit",Medium,API,Automated,tests/api/api.spec.ts:111,chromium,Passed,TE-001,,1098
+REST API,API-S02,API-010,Visit with an invalid date is rejected,Medium,"Negative, API",Automated,tests/api/api.spec.ts:129,chromium,Passed,TE-001,,1099
+REST API,API-S03,API-011,Pet type CRUD,Medium,API,Automated,tests/api/api.spec.ts:143,chromium,Passed,TE-001,,1100
+REST API,API-S03,API-012,Specialty CRUD,Medium,API,Automated,tests/api/api.spec.ts:143,chromium,Passed,TE-001,,1101
+REST API,API-S03,API-013,Vet CRUD with specialties,Medium,API,Automated,tests/api/api.spec.ts:161,chromium,Passed,TE-001,,1102
+REST API,API-S03,API-014,Missing required fields are rejected,Medium,"Negative, API",Automated,tests/api/api.spec.ts:187,chromium,Passed,TE-001,,1103
+REST API,API-S04,API-015,Requests without a token are rejected,High,"API, Security",Automated,tests/api/api.spec.ts:197,chromium,Passed,TE-001,,1104
+REST API,API-S04,API-016,Requests with an invalid token are rejected,High,"API, Security",Automated,tests/api/api.spec.ts:210,chromium,Passed,TE-001,,1105
+REST API,API-S04,API-017,UI and API show the same data,Medium,"Regression, API",Automated,tests/api/api.spec.ts:219,chromium,Passed,TE-001,,1106
+REST API,API-S04,API-018,Response times are reasonable,Low,API,Automated,tests/api/api.spec.ts:235,chromium,Passed,TE-001,,1107
+Security (non-invasive),SEC-S01,SEC-001,Script-like input in owner fields is shown as text,High,Security,Automated,tests/security/security.spec.ts:22,chromium,Passed,TE-001,,1108
+Security (non-invasive),SEC-S01,SEC-002,Script-like input in names of other entities,Medium,Security,Automated,tests/security/security.spec.ts:44,chromium,Passed,TE-001,,1109
+Security (non-invasive),SEC-S02,SEC-003,Access token is sent only to the API,High,Security,Automated,tests/security/security.spec.ts:65,chromium,Passed,TE-001,,1110
+Security (non-invasive),SEC-S02,SEC-004,API errors do not leak internal details,Medium,"API, Security",Automated (known-bug test),tests/security/security.spec.ts:93,chromium,Failed (confirmed bug),TE-001,BUG-008,1111
+Security (non-invasive),SEC-S02,SEC-005,No credentials or tokens in the repository or reports,Medium,Security,Manual,,,Not Executed,,,1112
+Accessibility,A11Y-S01,A11Y-001,Automated axe scan of every main page,Medium,Accessibility,Automated (known-bug test),tests/accessibility/accessibility.spec.ts:84,chromium,Failed (confirmed bug),TE-001,"BUG-011, BUG-012, BUG-014, BUG-016",1113
+Accessibility,A11Y-S02,A11Y-002,Navbar works with the keyboard only,Medium,Accessibility,Automated (known-bug test),tests/accessibility/accessibility.spec.ts:125,chromium,Failed (confirmed bug),TE-001,BUG-013,1114
+Accessibility,A11Y-S02,A11Y-003,New Owner form can be completed with the keyboard,Medium,Accessibility,Automated,tests/accessibility/accessibility.spec.ts:150,chromium,Passed,TE-001,,1115
+Accessibility,A11Y-S03,A11Y-004,Form fields have accessible names,Medium,Accessibility,Automated (known-bug test),tests/accessibility/accessibility.spec.ts:176,chromium,Failed (confirmed bug),TE-001,BUG-012,1116
+Accessibility,A11Y-S02,A11Y-005,Visible focus indicator,Low,Accessibility,Manual,,,Not Executed,,,1117
+Accessibility,A11Y-S02,A11Y-006,Date picker works with the keyboard,Low,Accessibility,Manual,,,Not Executed,,,1118
+Accessibility,A11Y-S03,A11Y-007,Loading indicator has an accessible name,Low,Accessibility,Automated (known-bug test),tests/accessibility/accessibility.spec.ts:204,chromium,Failed (confirmed bug),TE-001,BUG-015,1119
+Responsive / Cross-Browser,RSP-S01,RSP-001,Mobile navigation menu,Medium,Responsive,Automated,tests/responsive/responsive.spec.ts:9,"tablet, mobile",Passed,TE-001,,1120
+Responsive / Cross-Browser,RSP-S01,RSP-002,No horizontal page scroll on tablet and mobile,Low,Responsive,Automated (known-bug test),tests/responsive/responsive.spec.ts:27,"tablet, mobile",Failed (confirmed bug),TE-001,BUG-017,1121
+Responsive / Cross-Browser,RSP-S02,RSP-003,Create an owner on mobile,Medium,Smoke,"Automated (indirect, @smoke projects)",@smoke projects,,Passed,TE-001,,1122
+Responsive / Cross-Browser,RSP-S02,RSP-004,"Smoke suite on Firefox, WebKit, tablet and mobile",High,Smoke,"Automated (indirect, @smoke projects)",@smoke projects,,Passed,TE-001,,1123

@@ -11,9 +11,9 @@ possible defects found in Phase 1 to their outcome and to the cases that cover t
 
 ## 1. Summary
 
-**123 test cases.** Counts were computed from [TEST-CASES.md](TEST-CASES.md).
+**123 test cases.** Counts were computed from [TEST-CASES.md](TEST-CASES.md). All cases planned as "To automate" are now automated; the column names were updated on 2026-11-03.
 
-| Module | Cases | Critical | High | Medium | Low | Automated (exists) | To automate | To automate – known bug | Exploratory | Manual |
+| Module | Cases | Critical | High | Medium | Low | Automated (course assignment) | Automated | Automated – known bug | Exploratory | Manual |
 |---|---|---|---|---|---|---|---|---|---|---|
 | NAV  | 8  | – | 4 | 2  | 2  | 1 | 6  | 1  | – | – |
 | OWN  | 21 | 1 | 6 | 12 | 2  | – | 18 | 1  | 2 | – |
@@ -33,7 +33,7 @@ possible defects found in Phase 1 to their outcome and to the cases that cover t
 * PTY-010 became a known-bug case (BUG-009), priority Medium → High.
 * SEC-004 became a known-bug case (BUG-008).
 * SPC-008 became a normal automated case; its behaviour is now observed.
-* OWN-021 is counted under "To automate", but 4 of its 6 data rows are known-bug rows (BUG-010).
+* OWN-021 is counted under "Automated", but 4 of its 6 data rows are known-bug rows (BUG-010).
 
 **Changes in Phase 6:**
 * A11Y-001, A11Y-002 and A11Y-004 became known-bug cases (BUG-011 – BUG-014, BUG-016).
