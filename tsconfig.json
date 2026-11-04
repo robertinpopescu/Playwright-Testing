@@ -1,7 +1,18 @@
 {
-    "compileOnSave": true,
+    // Used only for type-checking (npm run typecheck). Playwright runs the .ts files itself,
+    // so nothing is compiled or emitted.
     "compilerOptions": {
-        "types": ["node"]
+        "target": "ES2023",
+        "lib": ["ES2023", "DOM"],
+        "module": "preserve",
+        "moduleResolution": "bundler",
+        "types": ["node"],
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true
     },
-     "include": ["**/*.ts", ".auth/**/*.ts"]
+    "include": ["**/*.ts", ".auth/**/*.ts"],
+    "exclude": ["node_modules", "test-results", "playwright-report"]
 }
